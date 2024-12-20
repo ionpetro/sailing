@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Sign In - SailVoyages",
-  description: "Sign in to book your dream sailing adventure",
+  title: "Home - SailVoyages",
+  description: "Book your dream sailing adventure in the Greek Islands",
 };
 
 export default function SignIn() {
