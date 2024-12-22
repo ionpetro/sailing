@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { AirVent, Home, Wifi, Anchor, Calendar, Fan, Bed } from "lucide-react";
 
 export default function PostItem({ ...props }) {
   return (
@@ -44,6 +45,28 @@ export default function PostItem({ ...props }) {
                 >
                   {props.title}
                 </Link>
+              </div>
+              <div className="flex flex-wrap gap-4 mb-3">
+                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                  <Fan className="w-3 h-3 mr-1" />
+                  Air condition
+                </div>
+                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                  <Bed className="w-3 h-3 mr-1" />
+                  Cabins: 6
+                </div>
+                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                  <Wifi className="w-3 h-3 mr-1" />
+                  Wifi
+                </div>
+                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                  <Anchor className="w-3 h-3 mr-1" />
+                  Berths: 12
+                </div>
+                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                  <Calendar className="w-3 h-3 mr-1" />
+                  Refit: 2024
+                </div>
               </div>
               <div className="-m-1">
                 <a

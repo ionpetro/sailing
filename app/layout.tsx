@@ -1,6 +1,7 @@
 import "./css/style.css";
 
 import { Inter, Nothing_You_Could_Do } from "next/font/google";
+import type { Metadata } from "next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,9 +16,23 @@ const nycd = Nothing_You_Could_Do({
   display: "swap",
 });
 
-export const metadata = {
-  title: "Home - SailVoyages",
+export const metadata: Metadata = {
+  title: "SailVoyages",
   description: "Book your dream sailing adventure in the Greek Islands",
+  icons: {
+    icon: [
+      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/logo.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      {
+        url: "/images/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -10,7 +10,6 @@
     "tag3": "🇬🇷 Athens, Greece",
     "date": "2h"
   },
-
   {
     "id": 1,
     "sticky": false,
@@ -21,27 +20,5 @@
     "tag2": "from €16,000",
     "tag3": "🇬🇷 Athens, Greece",
     "date": "22d"
-  },
-  {
-    "id": 3,
-    "sticky": false,
-    "title": "DI CONSTA",
-    "name": "Dufour 37",
-    "image": "/images/dufour.jpg",
-    "tag1": "daily",
-    "tag2": "from €140",
-    "tag3": "🇺🇸 NYC, USA",
-    "date": "4h"
-  },
-  {
-    "id": 4,
-    "sticky": false,
-    "title": "DI CONSTA",
-    "name": "Dufour 37",
-    "image": "/images/dufour.jpg",
-    "tag1": "daily",
-    "tag2": "from €140",
-    "tag3": "🇦🇪 Dubai, UAE",
-    "date": "4h"
   }
 ]
