@@ -32,9 +32,8 @@ export async function generateMetadata(props: {
   }
 
   return {
-    title: "Dufour 37 - Modern Sailing Yacht",
-    description:
-      "Experience luxury sailing aboard the Dufour 37 - perfect for families and small groups",
+    title: `${post.name} - ${post.title}`,
+    description: `Experience sailing aboard the ${post.name} in ${post.location}`,
   };
 }
 

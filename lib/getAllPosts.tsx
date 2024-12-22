@@ -1,8 +1,8 @@
 export default async function getAllPosts() {
   // Use relative URL when deployed, falls back to absolute URL in development
   const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}/api/hello`
-    : "http://localhost:3000/api/hello";
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
 
   const res = await fetch(`${baseUrl}/api/hello`);
 
