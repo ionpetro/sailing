@@ -21,7 +21,6 @@
 .form-switch input[type="checkbox"]:checked+label {
     @apply bg-indigo-500;
 }
-
 .form-switch input[type="checkbox"]:checked+label>span:first-child {
     left: 22px;
 }

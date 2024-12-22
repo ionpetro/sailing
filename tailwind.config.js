@@ -7,6 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        indigo: {
+          50: '#F0F3F9',
+          100: '#E1E7F3', 
+          200: '#C3CFE7',
+          400: '#7E94CB',
+          500: '#4B75DD',
+          600: '#4A65A7',
+        },
+      },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],
         'nycd': ['var(--font-nycd)', 'cursive'],

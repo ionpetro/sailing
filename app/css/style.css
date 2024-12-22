@@ -16,12 +16,16 @@
     }
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 /* custom */
 
 /* Swiper custom navigation colors */
 :root {
-    --swiper-navigation-color: theme('colors.indigo.500');
-    --swiper-pagination-color: theme('colors.indigo.500');
+    --swiper-navigation-color: #5270BA;
+    --swiper-pagination-color: #5270BA;
   }
   
   /* Custom Swiper styles */

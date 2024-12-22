@@ -49,10 +49,14 @@ export default function Hero() {
             <div className="sm:flex sm:items-center sm:justify-center md:justify-start space-y-6 sm:space-y-0 sm:space-x-5">
               <div>
                 <Link
-                  className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm"
-                  href="/book-trip"
+                  className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm group"
+                  href="#upcoming-trips"
+                  scroll
                 >
-                  Post your trip
+                  Explore Trips{" "}
+                  <span className="tracking-normal text-indigo-200 group-hover:translate-y-0.5 transition-transform duration-150 ease-in-out ml-1">
+                    ↓
+                  </span>
                 </Link>
               </div>
               <div className="sm:flex sm:items-center sm:justify-center space-y-2 sm:space-y-0 sm:space-x-3">
