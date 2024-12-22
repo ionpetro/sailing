@@ -6,22 +6,26 @@ import PostItem from "../../post-item";
 import Newsletter from "@/components/newsletter";
 import ImageGallery from "@/components/ui/image-gallery";
 import { MapPin, CircleDot, CreditCard, Calendar } from "lucide-react";
-import { Metadata } from "next";
 
 export async function generateStaticParams() {
-  const postsData: Promise<Trip[]> = getAllPosts();
-  const posts = await postsData;
+  try {
+    const postsData: Promise<Trip[]> = getAllPosts();
+    const posts = await postsData;
 
-  return posts.map((post: Trip) => ({
-    id: post.id.toString(),
-  }));
+    return posts.map((post: Trip) => ({
+      id: post.id.toString(),
+    }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return []; // Return empty array as fallback
+  }
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
-}): Promise<Metadata> {
+  params: any;
+}): Promise<any> {
   const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
@@ -38,7 +42,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: { params: { id: string } }) {
+export default async function Post({ params }: { params: any }) {
   const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
