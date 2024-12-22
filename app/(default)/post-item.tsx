@@ -13,7 +13,13 @@ export default function PostItem({ ...props }) {
       >
         <div className="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
           <div className="shrink-0">
-            <Image src={props.image} width={96} height={96} alt={props.name} />
+            <Image
+              src={props.image}
+              width={150}
+              height={150}
+              alt={props.name}
+              className="rounded-xl"
+            />
           </div>
           <div className="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
             <div>

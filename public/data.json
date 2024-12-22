@@ -1,46 +1,47 @@
 [
-    {
-      "id": 0,
-      "sticky": true,
-      "title": "'QUEEN OF HEARTS'", 
-      "name": "Lagoon 52",
-      "image": "https://user-images.githubusercontent.com/2683512/225010250-6f37a62b-737f-4380-93da-8563a1c3c73f.svg",
-      "tag1": "from €16,830",
-      "tag2": "🇬🇧 Athens, Greece",
-      "tag3": "weekly",
-      "date": "22d"
-    },
-    {
-      "id": 1,
-      "sticky": false,
-      "title": "'DI CONSTA'",
-      "name": "Dufour 37",
-      "image": "https://user-images.githubusercontent.com/2683512/225010338-b0c822c4-0583-491a-8914-826c9515dbaf.svg",
-      "tag1": "from €140",
-      "tag2": "🌎 Remote",
-      "tag3": "daily",
-      "date": "2h"
-    },
-    {
-      "id": 2,
-      "sticky": false,
-      "title": "Senior Site Reliability Engineer",
-      "name": "Robinhood",
-      "image": "https://user-images.githubusercontent.com/2683512/225010378-a5ce62f6-0ea3-4b9e-aed1-aee6b32ca6a7.svg",
-      "tag1": "Full Time",
-      "tag2": "🌎 Remote",
-      "tag3": "daily",
-      "date": "2h"
-    },
-    {
-      "id": 3,
-      "sticky": false,
-      "title": "Remote Shopify Website Tester",
-      "name": "GitHub",
-      "image": "https://user-images.githubusercontent.com/2683512/225010410-86af0a77-9db9-40a2-915e-3fdbce9dad1c.svg",
-      "tag1": "$100K - $170K",
-      "tag2": "🇺🇸 NYC",
-      "tag3": "daily",
-      "date": "4h"
-    }
+  {
+    "id": 0,
+    "sticky": true,
+    "title": "DI CONSTA",
+    "name": "Dufour 37",
+    "image": "/images/dufour.jpg",
+    "tag1": "daily",
+    "tag2": "from €140",
+    "tag3": "🇬🇷 Athens, Greece",
+    "date": "2h"
+  },
+
+  {
+    "id": 1,
+    "sticky": false,
+    "title": "QUEEN OF HEARTS",
+    "name": "Lagoon 52",
+    "image": "/images/lagoon52.jpg",
+    "tag1": "weekly",
+    "tag2": "from €16,000",
+    "tag3": "🇬🇷 Athens, Greece",
+    "date": "22d"
+  },
+  {
+    "id": 3,
+    "sticky": false,
+    "title": "DI CONSTA",
+    "name": "Dufour 37",
+    "image": "/images/dufour.jpg",
+    "tag1": "daily",
+    "tag2": "from €140",
+    "tag3": "🇺🇸 NYC, USA",
+    "date": "4h"
+  },
+  {
+    "id": 4,
+    "sticky": false,
+    "title": "DI CONSTA",
+    "name": "Dufour 37",
+    "image": "/images/dufour.jpg",
+    "tag1": "daily",
+    "tag2": "from €140",
+    "tag3": "🇦🇪 Dubai, UAE",
+    "date": "4h"
+  }
 ]

@@ -20,7 +20,7 @@ export default function Home() {
           <div className="py-8 md:py-16">
             <div data-sticky-container>
               {/* <Sidebar /> */}
-
+              {/* todo: add filters when we aggregate data */}
               {/* Main content */}
               <div className="w-full">
                 <PostsList />
