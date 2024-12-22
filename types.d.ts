@@ -1,11 +1,15 @@
 type Trip = {
   id: number;
-  featured: boolean;
+  sticky: boolean;
   title: string;
-  route: string;
-  image: string;
-  duration: string;
-  price: string;
-  departureDate: string;
-  capacity: number;
+  name: string;
+  images: {
+    url: string;
+    alt: string;
+  }[];
+  tag1: string;
+  tag2: string;
+  tag3: string;
+  date: string;
+  location: string;
 };

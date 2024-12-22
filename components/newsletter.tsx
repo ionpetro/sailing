@@ -6,10 +6,10 @@ export default function Newsletter() {
         aria-hidden="true"
       />
       <div className="font-nycd text-xl text-indigo-500 mb-1">
-        Stay in the loop
+        We know everyone in Greece
       </div>
       <div className="text-2xl font-bold mb-5">
-        Get notified about new sailing adventures.
+        Send us your email and we'll get back to you.
       </div>
       <form className="inline-flex max-w-sm">
         <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none">
@@ -23,7 +23,7 @@ export default function Newsletter() {
             className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 shadow-sm whitespace-nowrap"
             type="submit"
           >
-            Join Newsletter
+            Send
           </button>
         </div>
       </form>

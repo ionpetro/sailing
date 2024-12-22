@@ -13,13 +13,13 @@ export default function PostItem({ ...props }) {
         className={`px-4 py-6 ${props.sticky && "bg-indigo-100 rounded-xl"}`}
       >
         <div className="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
-          <div className="shrink-0">
+          <div className="shrink-0 w-[150px] h-[100px]">
             <Image
-              src={props.image}
+              src={props.images[0].url}
               width={150}
-              height={150}
-              alt={props.name}
-              className="rounded-xl"
+              height={100}
+              alt={props.images[0].alt}
+              className="rounded-xl object-cover w-full h-full"
             />
           </div>
           <div className="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
@@ -108,7 +108,7 @@ export default function PostItem({ ...props }) {
                 </Link>
               </div>
               <div className="group-hover:lg:hidden text-sm italic text-gray-500">
-                {props.date}
+                Available from {props.date}
               </div>
             </div>
           </div>

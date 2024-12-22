@@ -5,9 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import PostItem from "../../post-item";
 import Newsletter from "@/components/newsletter";
+import ImageGallery from "@/components/ui/image-gallery";
+import { MapPin, CircleDot, CreditCard, Calendar } from "lucide-react";
 
 export async function generateStaticParams() {
-  const postsData: Promise<any[]> = getAllPosts();
+  const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
 
   return posts.map((post) => ({
@@ -19,7 +21,7 @@ export async function generateMetadata(props: {
   params: Promise<{ id: number }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  const postsData: Promise<any[]> = getAllPosts();
+  const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
 
@@ -30,8 +32,9 @@ export async function generateMetadata(props: {
   }
 
   return {
-    title: post.title,
-    description: "Page description",
+    title: "Dufour 37 - Modern Sailing Yacht",
+    description:
+      "Experience luxury sailing aboard the Dufour 37 - perfect for families and small groups",
   };
 }
 
@@ -40,7 +43,7 @@ export default async function SinglePost(props: {
 }) {
   const params = await props.params;
 
-  const postsData: Promise<any[]> = getAllPosts();
+  const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
 
@@ -48,11 +51,18 @@ export default async function SinglePost(props: {
     notFound();
   }
 
+  // Example images array - adjust based on your data structure
+  const images = post.images;
+
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-28 pb-8 md:pt-36 md:pb-16">
-          <div className="md:flex md:justify-between" data-sticky-container>
+        <div className="pt-12 pb-8 md:pt-20 md:pb-16">
+          <ImageGallery images={images} />
+          <div
+            className="mt-8 md:flex md:justify-between"
+            data-sticky-container
+          >
             {/* Sidebar */}
             <aside className="mb-8 md:mb-0 md:w-64 lg:w-72 md:ml-12 lg:ml-20 md:shrink-0 md:order-1">
               <div
@@ -64,58 +74,43 @@ export default async function SinglePost(props: {
                 <div className="relative bg-gray-50 rounded-xl border border-gray-200 p-5">
                   <div className="text-center mb-6">
                     <Image
-                      className="inline-flex mb-2"
-                      src={post.image}
-                      width={72}
-                      height={72}
+                      className="inline-flex mb-2 rounded-xl"
+                      src={post.images[0].url}
+                      width={100}
+                      height={100}
                       alt={post.name}
                     />
-                    <h2 className="text-lg font-bold text-gray-800">
+                    <p className="text-lg text-indigo-500 font-nycd mt-1">
                       {post.name}
+                    </p>
+                    <h2 className="text-2xl font-bold text-gray-800 font-inter">
+                      {post.title}
                     </h2>
                   </div>
-
                   <div className="flex justify-center md:justify-start mb-5">
                     <ul className="inline-flex flex-col space-y-2">
                       <li className="flex items-center">
-                        <svg
-                          className="shrink-0 fill-gray-400 mr-3"
-                          width="14"
-                          height="14"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M9.707 4.293a1 1 0 0 0-1.414 1.414L10.586 8H2V2h3a1 1 0 1 0 0-2H2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h8.586l-2.293 2.293a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4Z" />
-                        </svg>
+                        <Calendar className="shrink-0 text-gray-400 mr-3 w-4 h-4" />
                         <span className="text-sm text-gray-600">
-                          {post.date}
+                          Available {post.date}
                         </span>
                       </li>
                       <li className="flex items-center">
-                        <svg
-                          className="shrink-0 fill-gray-400 mr-3"
-                          width="14"
-                          height="16"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle cx="7" cy="7" r="2" />
-                          <path d="M6.3 15.7c-.1-.1-4.2-3.7-4.2-3.8C.7 10.7 0 8.9 0 7c0-3.9 3.1-7 7-7s7 3.1 7 7c0 1.9-.7 3.7-2.1 5-.1.1-4.1 3.7-4.2 3.8-.4.3-1 .3-1.4-.1Zm-2.7-5 3.4 3 3.4-3c1-1 1.6-2.2 1.6-3.6 0-2.8-2.2-5-5-5S2 4.2 2 7c0 1.4.6 2.7 1.6 3.7 0-.1 0-.1 0 0Z" />
-                        </svg>
+                        <MapPin className="shrink-0 text-gray-400 mr-3 w-4 h-4" />
                         <span className="text-sm text-gray-600">
-                          {post.tag2}
+                          {post.tag3}
                         </span>
                       </li>
                       <li className="flex items-center">
-                        <svg
-                          className="shrink-0 fill-gray-400 mr-3"
-                          width="16"
-                          height="12"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M15 0H1C.4 0 0 .4 0 1v10c0 .6.4 1 1 1h14c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm-1 10H2V2h12v8Z" />
-                          <circle cx="8" cy="6" r="2" />
-                        </svg>
+                        <CircleDot className="shrink-0 text-gray-400 mr-3 w-4 h-4" />
                         <span className="text-sm text-gray-600">
-                          {post.tag1}
+                          Rental Type {post.tag1}
+                        </span>
+                      </li>
+                      <li className="flex items-center">
+                        <CreditCard className="shrink-0 text-gray-400 mr-3 w-4 h-4" />
+                        <span className="text-sm text-gray-600">
+                          Price {post.tag2}
                         </span>
                       </li>
                     </ul>
@@ -132,15 +127,6 @@ export default async function SinglePost(props: {
                       </span>
                     </a>
                   </div>
-
-                  <div className="text-center">
-                    <a
-                      className="text-sm text-indigo-500 font-medium hover:underline"
-                      href="#0"
-                    >
-                      Visit Website
-                    </a>
-                  </div>
                 </div>
               </div>
             </aside>
@@ -151,120 +137,143 @@ export default async function SinglePost(props: {
               <div className="pb-8">
                 <div className="mb-4">
                   <Link className="text-indigo-500 font-medium" href="/">
-                    <span className="tracking-normal">&lt;-</span> All Jobs
+                    <span className="tracking-normal">&lt;-</span> All Trips
                   </Link>
                 </div>
-                <h1 className="text-4xl font-extrabold font-inter mb-10">
-                  {post.title}
+                <span className="text-indigo-500 text-lg font-nycd">
+                  {post.name} aka {post.title}
+                </span>
+                <h1 className="text-3xl font-extrabold font-inter mb-10">
+                  A daily sailing experience in {post.location}
                 </h1>
                 {/* Job description */}
                 <div className="space-y-8 mb-8">
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      The Role
+                      The Experience
                     </h3>
                     <div className="text-gray-500 space-y-3">
                       <p>
-                        In the world of AI, behavioural predictions are leading
-                        the charge to better machine learning.
+                        The Dufour 37 is a modern sailing yacht designed for
+                        comfort, style, and exceptional performance. With its
+                        sleek lines and innovative features, it offers a unique
+                        sailing experience.
                       </p>
+                    </div>
+                  </div>
+                  {/* Highlights */}
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                      Highlights
+                    </h3>
+                    <div className="text-gray-500 space-y-3">
                       <p>
-                        There is so much happening in the AI space. Advances in
-                        the economic sectors have seen automated business
-                        practices rapidly increasing economic value. While the
-                        realm of the human sciences has used the power afforded
-                        by computational capabilities to solve many human based
-                        dilemmas. Even the art scene has adopted carefully
-                        selected ML applications to usher in the technological
-                        movement.
+                        The Dufour 37 combines functionality and elegance,
+                        making it perfect for sailing enthusiasts.
                       </p>
-                      <p>
-                        As a Senior Client Engineer, you'll work alongside other
-                        engineers, designers, and product managers to tackle
-                        everything from huge company initiatives to modest but
-                        important bug fixes, from start to finish. You'll also
-                        collaborate with your product team on discovery, helping
-                        to assess the direction and feasibility of product
-                        changes. And, perhaps most importantly, you'll actively
-                        contribute to the evolution of the culture and processes
-                        of a growing engineering team.
-                      </p>
+                      <div className="space-y-3">
+                        <p>
+                          🍳 Fully equipped galley with stove, oven,
+                          refrigerator, and ample storage
+                        </p>
+                        <p>
+                          ⚓ Ergonomic cockpit with dual helm stations and
+                          folding table
+                        </p>
+                        <p>
+                          🛋️ Interior finishes and comfortable accommodations
+                        </p>
+                        <p>🎵 Music, WiFi and Watersports on board</p>
+                      </div>
                     </div>
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      About You
+                      Amenities
                     </h3>
                     <div className="text-gray-500 space-y-3">
                       <p>
-                        You love building great software. Your work could be
-                        supporting new feature development, migrating existing
-                        features, and creating other mobile and web solutions
-                        for customers. You'll have a primary focus on frontend
-                        development using Javascript. Our client's tech stack is
-                        JavaScript, primarily using React. A strong
-                        understanding of JS core (ES2019+) is required, with
-                        some exposure in Java as back-end technology. We use
-                        modern tools, which means you'll have the opportunity to
-                        work with Webpack, Redux, Apollo, Styled Components, and
-                        much more.
+                        Onboard, you'll find everything you need for an
+                        enjoyable journey:
                       </p>
-                      <p>
-                        You love learning. Engineering is an ever-evolving
-                        world. You enjoy playing with new tech and exploring
-                        areas that you might not have experience with yet. You
-                        are self-driven, self-learner willing to share knowledge
-                        and participate actively in your community.
-                      </p>
-                      <p>
-                        Having overlap with your team is critical when working
-                        in a global remote team. Modus requires all team members
-                        to overlap with EST morning hours daily. In addition,
-                        reliable high speed internet is a must.
-                      </p>
+                      <div className="space-y-3">
+                        <p>
+                          🛋️ Premium upholstery, LED lighting, and plenty of
+                          ventilation
+                        </p>
+                        <p>
+                          🧭 State-of-the-art navigation instruments, including
+                          GPS, autopilot, and chartplotter
+                        </p>
+                        <p>🎵 Bluetooth-enabled sound system</p>
+                        <p>
+                          🏊‍♂️ Snorkeling gear, paddleboards, and inflatable toys
+                          available upon request
+                        </p>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Video */}
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      Things You Might Do
+                      Video
                     </h3>
                     <div className="text-gray-500 space-y-3">
                       <p>
-                        We are a fast-growing, and remote-first company, so
-                        you'll likely get experience on many different projects
-                        across the organization. That said, here are some things
-                        you'll probably do:
+                        Watch the Dufour 37 in action and see the stunning views
+                        from the water.
                       </p>
+                      <div className="aspect-w-16 aspect-h-7">
+                        <iframe
+                          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                          title="Dufour 37 Video Tour"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-96 rounded-lg"
+                        ></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                      Charter Information
+                    </h3>
+                    <div className="text-gray-500 space-y-3">
                       <ul className="list-disc list-inside space-y-3">
+                        <li>Accommodates up to 6 guests comfortably</li>
+                        <li>Available only for daily skippered charter</li>
                         <li>
-                          Give back to the community via open source and blog
-                          posts
+                          Perfect for group adventures with friends and family
                         </li>
-                        <li>
-                          Travel and meet great people- as part of our
-                          remote-first lifestyle, it's important that we come
-                          together as needed to work together, meet each other
-                          in person and have fun together. Please keep that in
-                          mind when you apply
-                        </li>
-                        <li>
-                          Teach and be taught: Modus creates active teams that
-                          work in internal and external projects together,
-                          giving opportunities to stay relevant with the latest
-                          technologies and learning from experts worldwide
-                        </li>
-                        <li>
-                          Interact directly with internal and external clients
-                          to represent Modus and its values
-                        </li>
+                        <li>Flexible booking options and competitive rates</li>
                       </ul>
                     </div>
                   </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                      Specifications
+                    </h3>
+                    <div className="text-gray-500 space-y-3">
+                      <ul className="list-disc list-inside space-y-3">
+                        <li>Length Overall: 10.77 meters (35 feet 4 inches)</li>
+                        <li>Beam (Width): 3.80 meters (12 feet 5 inches)</li>
+                        <li>Draft: 1.90 meters (6 feet 2 inches)</li>
+                        <li>Maximum Speed: Approximately 8 knots</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p className="mt-4">
+                    Whether you're seeking a romantic getaway, a family
+                    adventure, or a fun outing with friends, this yacht promises
+                    unforgettable memories on the water.
+                  </p>
                 </div>
                 {/* Social share */}
                 <div className="flex items-center justify-end space-x-4">
                   <div className="text-xl font-nycd text-gray-400">
-                    Share job
+                    Share trip
                   </div>
                   <ul className="inline-flex space-x-3">
                     <li>
@@ -315,11 +324,10 @@ export default async function SinglePost(props: {
                   </ul>
                 </div>
               </div>
-
-              {/* Related jobs */}
+              {/* Related trips */}
               <div className="mb-8">
                 <h4 className="text-2xl font-bold font-inter mb-8">
-                  Related Jobs
+                  Related Trips
                 </h4>
                 {/* List container */}
                 <div className="flex flex-col border-t border-gray-200">

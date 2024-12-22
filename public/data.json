@@ -4,21 +4,45 @@
     "sticky": true,
     "title": "DI CONSTA",
     "name": "Dufour 37",
-    "image": "/images/dufour.jpg",
+    "images": [
+      {
+        "url": "/images/dufour/dufour2.jpg",
+        "alt": "Dufour 37 - Main"
+      },
+      {
+        "url": "/images/dufour/dufour3.webp",
+        "alt": "Dufour 37 - Exterior"
+      },
+      {
+        "url": "/images/dufour/dufour5.jpg",
+        "alt": "Dufour 37 - Exterior 2"
+      },
+      {
+        "url": "/images/dufour/dufour4.jpg",
+        "alt": "Dufour 37 - Interior"
+      }
+    ],
     "tag1": "daily",
     "tag2": "from €140",
     "tag3": "🇬🇷 Athens, Greece",
-    "date": "2h"
+    "date": "today",
+    "location": "Athens"
   },
   {
     "id": 1,
     "sticky": false,
     "title": "QUEEN OF HEARTS",
     "name": "Lagoon 52",
-    "image": "/images/lagoon52.jpg",
+    "images": [
+      {
+        "url": "/images/lagoon52/lagoon52.jpg",
+        "alt": "Lagoon 52 - Main"
+      }
+    ],
     "tag1": "weekly",
     "tag2": "from €16,000",
     "tag3": "🇬🇷 Athens, Greece",
-    "date": "22d"
+    "date": "today",
+    "location": "Athens"
   }
 ]
