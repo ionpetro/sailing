@@ -132,7 +132,7 @@ export default async function SinglePost(props: {
                       className="btn w-full text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
                       href="#0"
                     >
-                      Apply Now{" "}
+                      Book Now{" "}
                       <span className="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                         -&gt;
                       </span>

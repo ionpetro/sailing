@@ -1,3 +1,10 @@
 export async function GET(request: Request) {
-  return new Response('Hello, Next.js!')
+  const data = await import("../../../public/data.json");
+
+  return new Response(JSON.stringify(data.default), {
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
 }
