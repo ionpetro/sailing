@@ -17,10 +17,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata(props: {
-  params: Promise<{ id: number }>;
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
 }): Promise<Metadata> {
-  const params = await props.params;
   const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
@@ -37,11 +38,7 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function SinglePost(props: {
-  params: Promise<{ id: number }>;
-}) {
-  const params = await props.params;
-
+export default async function Post({ params }: { params: { id: string } }) {
   const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));

@@ -1,4 +1,4 @@
-type Trip = {
+interface Trip {
   id: number;
   sticky: boolean;
   title: string;
@@ -12,4 +12,4 @@ type Trip = {
   tag3: string;
   date: string;
   location: string;
-};
+}
