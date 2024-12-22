@@ -9,7 +9,7 @@ import ImageGallery from "@/components/ui/image-gallery";
 import { MapPin, CircleDot, CreditCard, Calendar } from "lucide-react";
 
 export async function generateStaticParams() {
-  const postsData: Promise<Trip[]> = getAllPosts();
+  const postsData: Promise<any[]> = getAllPosts();
   const posts = await postsData;
 
   return posts.map((post) => ({
@@ -17,12 +17,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
-  const postsData: Promise<Trip[]> = getAllPosts();
+export async function generateMetadata(params: any): Promise<Metadata> {
+  const postsData: Promise<any[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
 
@@ -38,8 +34,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: { params: { id: string } }) {
-  const postsData: Promise<Trip[]> = getAllPosts();
+export default async function Post({ params }: { params: any }) {
+  const postsData: Promise<any[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
 
