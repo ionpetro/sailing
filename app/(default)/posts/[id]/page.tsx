@@ -1,5 +1,4 @@
 import getAllPosts from "@/lib/getAllPosts";
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,17 +6,23 @@ import PostItem from "../../post-item";
 import Newsletter from "@/components/newsletter";
 import ImageGallery from "@/components/ui/image-gallery";
 import { MapPin, CircleDot, CreditCard, Calendar } from "lucide-react";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
-  const postsData = await getAllPosts();
+  const postsData: Promise<Trip[]> = getAllPosts();
+  const posts = await postsData;
 
-  return postsData.map((post: any) => ({
+  return posts.map((post: Trip) => ({
     id: post.id.toString(),
   }));
 }
 
-export async function generateMetadata(params: any): Promise<Metadata> {
-  const postsData: Promise<any[]> = getAllPosts();
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
 
@@ -33,8 +38,8 @@ export async function generateMetadata(params: any): Promise<Metadata> {
   };
 }
 
-export default async function Post({ params }: { params: any }) {
-  const postsData: Promise<any[]> = getAllPosts();
+export default async function Post({ params }: { params: { id: string } }) {
+  const postsData: Promise<Trip[]> = getAllPosts();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
 
