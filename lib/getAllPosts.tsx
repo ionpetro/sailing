@@ -4,7 +4,7 @@ export default async function getAllPosts() {
     ? `https://${process.env.VERCEL_URL}`
     : "http://localhost:3000";
 
-  const res = await fetch(`${baseUrl}/api/hello`);
+  const res = await fetch(`${baseUrl}/api/hello`, { cache: "no-store" });
 
   if (!res.ok) throw new Error("failed to fetch data");
 
