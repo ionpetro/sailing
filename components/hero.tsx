@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-28 pb-8 md:pt-36 md:pb-16">
           {/* Hero content */}
-          <div className="max-w-3xl text-center md:text-left">
+          <div className="max-w-3xl mx-auto text-center">
             {/* Copy */}
             <h1 className="h1 font-inter mb-6">
               Experience the beauty of the Greek Islands by{" "}
@@ -46,7 +46,7 @@ export default function Hero() {
               sailing experiences.
             </p>
             {/* Button + Avatars */}
-            <div className="sm:flex sm:items-center sm:justify-center md:justify-start space-y-6 sm:space-y-0 sm:space-x-5">
+            <div className="flex items-center justify-center space-y-6 sm:space-y-0 sm:space-x-5">
               <div>
                 <Link
                   className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm group"
@@ -59,7 +59,7 @@ export default function Hero() {
                   </span>
                 </Link>
               </div>
-              <div className="sm:flex sm:items-center sm:justify-center space-y-2 sm:space-y-0 sm:space-x-3">
+              <div className="flex items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
                 <div className="inline-flex -space-x-3 -ml-0.5">
                   <Image
                     className="rounded-full border-2 border-indigo-50 box-content"
