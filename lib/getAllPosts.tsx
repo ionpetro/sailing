@@ -26,7 +26,7 @@ export default async function getAllPosts() {
           },
         ],
         tag1: "daily",
-        tag2: "from €140",
+        tag2: "from €130",
         tag3: "🇬🇷 Athens, Greece",
         date: "today",
         location: "Athens",
