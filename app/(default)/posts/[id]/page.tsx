@@ -1,6 +1,6 @@
 import getAllPosts from "@/lib/getAllPosts";
 import { notFound } from "next/navigation";
-import Booking from "@/components/booking/Booking";
+import Trip from "@/components/Trip";
 
 export async function generateStaticParams() {
   try {
@@ -46,5 +46,5 @@ export default async function Post({ params }: { params: any }) {
     notFound();
   }
 
-  return <Booking post={post} posts={posts} />;
+  return <Trip post={post} posts={posts} />;
 }

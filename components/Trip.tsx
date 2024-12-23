@@ -4,20 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, CircleDot, CreditCard, Calendar } from "lucide-react";
-import BookingModal from "@/components/booking/BookingModal";
+
 import Newsletter from "@/components/newsletter";
 import PostItem from "@/app/(default)/post-item";
 import ImageGallery from "@/components/ui/image-gallery";
+import BookingShort from "./booking/BookingShort";
 
-export default function Booking({
-  post,
-  posts,
-}: {
-  post: Trip;
-  posts: Trip[];
-}) {
-  const [showBookingModal, setShowBookingModal] = useState(false);
-
+export default function Trip({ post, posts }: { post: Trip; posts: Trip[] }) {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -80,17 +73,11 @@ export default function Booking({
                     </ul>
                   </div>
 
-                  <div className="max-w-xs mx-auto mb-5">
-                    <button
-                      className="btn w-full text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
-                      onClick={() => setShowBookingModal(true)}
-                    >
-                      Book Now{" "}
-                      <span className="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                        -&gt;
-                      </span>
-                    </button>
-                  </div>
+                  <BookingShort
+                    price={post.tag2}
+                    title={post.title}
+                    maxGuests={12}
+                  />
                 </div>
               </div>
             </aside>
@@ -308,14 +295,6 @@ export default function Booking({
           </div>
         </div>
       </div>
-      {showBookingModal && (
-        <BookingModal
-          price={post.tag2}
-          title={post.title}
-          maxGuests={12} // You might want to store this in your trip data
-          onClose={() => setShowBookingModal(false)}
-        />
-      )}
     </section>
   );
 }
