@@ -13,4 +13,10 @@ interface Trip {
   date: string;
   location: string;
   created_at: string;
+  maxGuests: number;
+  pricePerPerson: number;
+  availableDates?: {
+    start: string;
+    end: string;
+  };
 }

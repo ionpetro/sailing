@@ -101,7 +101,7 @@ export default function PostItem({ ...props }) {
                   className="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
                   href={`/posts/${props.id}`}
                 >
-                  Book Now{" "}
+                  Check it out{" "}
                   <span className="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                     -&gt;
                   </span>
