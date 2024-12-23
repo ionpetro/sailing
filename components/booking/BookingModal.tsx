@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar } from "lucide-react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { DatePickerInput } from "@mantine/dates";
+import dayjs from "dayjs";
 
 interface BookingModalProps {
   price: string;
@@ -18,7 +18,7 @@ export default function BookingModal({
   maxGuests,
   onClose,
 }: BookingModalProps) {
-  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [date, setDate] = useState<Date | null>(null);
   const [guests, setGuests] = useState(1);
   const basePrice = parseInt(price.replace(/[^0-9]/g, ""));
 
@@ -48,16 +48,17 @@ export default function BookingModal({
             <label className="block text-sm font-medium mb-2">
               Select Date
             </label>
-            <div className="relative">
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                minDate={new Date()}
-                className="form-input w-full pl-10"
-                placeholderText="Select date"
-              />
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
-            </div>
+            <DatePickerInput
+              value={date}
+              onChange={setDate}
+              minDate={new Date()}
+              placeholder="Pick a date"
+              className="w-full"
+              leftSection={<CalendarIcon className="w-4 h-4 text-gray-400" />}
+              classNames={{
+                input: "form-input w-full pl-10",
+              }}
+            />
           </div>
 
           {/* Guest Selection */}
@@ -102,8 +103,11 @@ export default function BookingModal({
           <button
             className="btn w-full text-white bg-indigo-500 hover:bg-indigo-600 shadow-sm"
             onClick={() => {
-              // Handle booking logic
-              console.log("Booking:", { startDate, guests, total });
+              console.log("Booking:", {
+                date: date ? dayjs(date).format("YYYY-MM-DD") : null,
+                guests,
+                total,
+              });
             }}
           >
             Reserve Now
