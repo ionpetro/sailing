@@ -16,7 +16,10 @@ interface Trip {
 
 export default async function PostsList() {
   const postsData: Promise<Trip[]> = getAllPosts();
+
   const posts = await postsData;
+
+  console.log(posts);
 
   return (
     <div className="pb-8 md:pb-16">
