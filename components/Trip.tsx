@@ -77,6 +77,7 @@ export default function Trip({ post, posts }: { post: Trip; posts: Trip[] }) {
                     price={post.tag2}
                     title={post.title}
                     maxGuests={12}
+                    id={post.id.toString()}
                   />
                 </div>
               </div>

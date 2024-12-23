@@ -3,17 +3,24 @@
 import { useState } from "react";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DatePickerInput } from "@mantine/dates";
+import { loadStripe } from "@stripe/stripe-js";
 
 interface BookingModalProps {
   price: string;
   title: string;
   maxGuests: number;
+  id: string;
 }
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
 
 export default function BookingModal({
   price,
   title,
   maxGuests,
+  id,
 }: BookingModalProps) {
   const [date, setDate] = useState<Date | null>(new Date());
   const [guests, setGuests] = useState(1);
@@ -25,6 +32,42 @@ export default function BookingModal({
   };
 
   const total = basePrice + fees.service + fees.tax;
+
+  const handleBooking = async () => {
+    if (!date) return;
+
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          basePrice,
+          serviceFee: fees.service,
+          tax: fees.tax,
+          guests,
+          date: date.toISOString(),
+          tripId: id,
+          tripTitle: title,
+        }),
+      });
+
+      const { sessionId } = await response.json();
+      const stripe = await stripePromise;
+
+      // Redirect to Stripe Checkout
+      const result = await stripe?.redirectToCheckout({
+        sessionId,
+      });
+
+      if (result?.error) {
+        console.error(result.error);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div>
@@ -83,7 +126,10 @@ export default function BookingModal({
           </div>
         </div>
 
-        <button className="btn w-full text-white bg-indigo-500 hover:bg-indigo-600 shadow-sm">
+        <button
+          className="btn w-full text-white bg-indigo-500 hover:bg-indigo-600 shadow-sm"
+          onClick={handleBooking}
+        >
           Book now
         </button>
       </div>
