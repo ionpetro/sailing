@@ -1,10 +1,14 @@
 import { redirect } from "next/navigation";
 import Stripe from "stripe";
 
+interface SearchParams {
+  session_id?: string;
+}
+
 export default async function SuccessPage({
   searchParams,
 }: {
-  searchParams: { session_id: string };
+  searchParams: SearchParams;
 }) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2024-12-18.acacia",
