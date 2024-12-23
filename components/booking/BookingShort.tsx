@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DatePickerInput } from "@mantine/dates";
-import dayjs from "dayjs";
 
 interface BookingModalProps {
   price: string;
@@ -16,7 +15,7 @@ export default function BookingModal({
   title,
   maxGuests,
 }: BookingModalProps) {
-  const [date, setDate] = useState<Date | null>(null);
+  const [date, setDate] = useState<Date | null>(new Date());
   const [guests, setGuests] = useState(1);
   const basePrice = parseInt(price.replace(/[^0-9]/g, ""));
 
@@ -35,7 +34,7 @@ export default function BookingModal({
           <label className="block text-sm font-medium mb-2">Select Date</label>
           <DatePickerInput
             value={date}
-            onChange={setDate}
+            onChange={(newDate) => setDate(newDate)}
             minDate={new Date()}
             placeholder="Pick a date"
             className="w-full"

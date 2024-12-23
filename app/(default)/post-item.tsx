@@ -41,7 +41,7 @@ export default function PostItem({ ...props }) {
               <div className="mb-2">
                 <Link
                   className="text-lg text-gray-800 font-bold"
-                  href={`/posts/${props.id}`}
+                  href={`/trips/${props.id}`}
                 >
                   {props.title}
                 </Link>
@@ -99,7 +99,7 @@ export default function PostItem({ ...props }) {
               <div className="lg:hidden group-hover:lg:block">
                 <Link
                   className="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
-                  href={`/posts/${props.id}`}
+                  href={`/trips/${props.id}`}
                 >
                   Check it out{" "}
                   <span className="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
