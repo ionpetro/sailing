@@ -1,48 +1,21 @@
+import { supabase } from "./supabase";
+
 export default async function getAllPosts() {
-  // During build time, return mock data directly
-  if (process.env.NODE_ENV === "production") {
-    return [
-      {
-        id: 0,
-        sticky: true,
-        title: "DI CONSTA",
-        name: "Dufour 37",
-        images: [
-          {
-            url: "/images/dufour/dufour2.jpg",
-            alt: "Dufour 37 - Main",
-          },
-          {
-            url: "/images/dufour/dufour3.webp",
-            alt: "Dufour 37 - Exterior",
-          },
-          {
-            url: "/images/dufour/dufour5.jpg",
-            alt: "Dufour 37 - Exterior 2",
-          },
-          {
-            url: "/images/dufour/dufour4.jpg",
-            alt: "Dufour 37 - Interior",
-          },
-        ],
-        tag1: "daily",
-        tag2: "from €130",
-        tag3: "🇬🇷 Athens, Greece",
-        date: "today",
-        location: "Athens",
-      },
-      // Add more mock data as needed
-    ];
+  try {
+    const { data, error } = await supabase
+      .from("trips")
+      .select("*")
+      .order("sticky", { ascending: false })
+      .order("id", { ascending: true });
+
+    if (error) {
+      console.error("Error fetching trips:", error);
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
   }
-
-  // During development, fetch from API
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/hello`, {
-    next: {
-      revalidate: 3600,
-    },
-  });
-
-  if (!res.ok) throw new Error("failed to fetch data");
-  return res.json();
 }

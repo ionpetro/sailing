@@ -12,4 +12,5 @@ interface Trip {
   tag3: string;
   date: string;
   location: string;
+  created_at: string;
 }

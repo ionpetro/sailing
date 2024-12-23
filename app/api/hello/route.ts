@@ -1,5 +1,4 @@
 export async function GET(request: Request) {
-  // TODO: fetch from supabase API
   const tripData = [
     {
       id: 0,
