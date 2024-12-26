@@ -28,7 +28,7 @@ export default function Header() {
                   className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm"
                   href="/post-trip"
                 >
-                  Post Your Trip
+                  Post your Boat
                 </Link>
               </li>
             </ul>
