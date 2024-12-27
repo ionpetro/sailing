@@ -1,7 +1,8 @@
 -- First, insert the boats
 INSERT INTO boats (
   name, 
-  type, 
+  type,
+  images,
   capacity, 
   features,
   length_meters,
@@ -20,6 +21,24 @@ VALUES
   (
     'Dufour 37',
     'Sailing Yacht',
+    '[
+      {
+        "url": "/images/dufour/dufour2.jpg",
+        "alt": "Dufour 37 - Main"
+      },
+      {
+        "url": "/images/dufour/dufour3.webp",
+        "alt": "Dufour 37 - Exterior"
+      },
+      {
+        "url": "/images/dufour/dufour5.jpg",
+        "alt": "Dufour 37 - Exterior 2"
+      },
+      {
+        "url": "/images/dufour/dufour4.jpg",
+        "alt": "Dufour 37 - Interior"
+      }
+    ]',
     8,
     '{
       "length": "37 feet",
@@ -48,6 +67,64 @@ VALUES
   (
     'Bali 4.2 Infinity',
     'Catamaran',
+    '[
+      {
+        "url": "/images/bali42/Bali-42-Infinity-2-optimized.jpg",
+        "alt": "Bali 4.2 Infinity - Main"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-3-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-4-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-5-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-6-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-7-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-8-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-9-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-10-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-11-optimized.jpg",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-12-optimized.webp",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-13-optimized.webp",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Bali-42-Infinity-14-optimized.webp",
+        "alt": "Bali 4.2 Infinity"
+      },
+      {
+        "url": "/images/bali42/Layout-Bali-42-optimized.webp",
+        "alt": "Bali 4.2 Infinity"
+      }
+    ]',
     10,
     '{
       "length": "42 feet",
@@ -87,7 +164,6 @@ VALUES
 INSERT INTO trips (
   sticky, 
   title, 
-  images, 
   tag1, 
   tag2, 
   tag3, 
@@ -101,24 +177,6 @@ VALUES
   (
     true,
     'A fun sailing trip',
-    '[
-      {
-        "url": "/images/dufour/dufour2.jpg",
-        "alt": "Dufour 37 - Main"
-      },
-      {
-        "url": "/images/dufour/dufour3.webp",
-        "alt": "Dufour 37 - Exterior"
-      },
-      {
-        "url": "/images/dufour/dufour5.jpg",
-        "alt": "Dufour 37 - Exterior 2"
-      },
-      {
-        "url": "/images/dufour/dufour4.jpg",
-        "alt": "Dufour 37 - Interior"
-      }
-    ]',
     'daily',
     'from €140',
     '🇬🇷 Athens, Greece',
@@ -151,12 +209,6 @@ Onboard, you''ll find everything you need for an enjoyable journey:
   (
     false,
     'A lux trip with a catamaran',
-    '[
-      {
-        "url": "/images/lagoon52/lagoon52.jpg",
-        "alt": "Lagoon 52 - Main"
-      }
-    ]',
     'weekly',
     'from €16,000',
     '🇬🇷 Athens, Greece',

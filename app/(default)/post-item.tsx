@@ -16,10 +16,10 @@ export default function PostItem({ ...props }: Trip) {
         <div className="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
           <div className="shrink-0 w-[150px] h-[100px]">
             <Image
-              src={props.images[0].url}
+              src={props.boat?.images[0].url || ""}
               width={150}
               height={100}
-              alt={props.images[0].alt}
+              alt={props.boat?.images[0].alt || ""}
               className="rounded-xl object-cover w-full h-full"
             />
           </div>

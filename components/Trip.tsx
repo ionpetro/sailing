@@ -22,7 +22,7 @@ export default function Trip({
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-12 pb-8 md:pt-20 md:pb-16">
-          <ImageGallery images={post.images} />
+          <ImageGallery images={post.boat?.images || []} />
           <div
             className="mt-8 md:flex md:justify-between"
             data-sticky-container
@@ -39,15 +39,15 @@ export default function Trip({
                   <div className="text-center mb-6">
                     <Image
                       className="inline-flex mb-2 rounded-xl"
-                      src={post.images[0].url}
-                      width={100}
-                      height={100}
+                      src={post.boat?.images[0].url || ""}
+                      width={180}
+                      height={180}
                       alt={post.boat?.name || "Boat image"}
                     />
                     <p className="text-lg text-indigo-500 font-nycd mt-1">
                       {post.boat?.name}
                     </p>
-                    <h2 className="text-2xl font-bold text-gray-800 font-inter">
+                    <h2 className="text-2xl font-bold text-gray-800 font-inter leading-tight">
                       {post.title}
                     </h2>
                   </div>
@@ -59,22 +59,18 @@ export default function Trip({
                           Available {post.date}
                         </span>
                       </li>
+
+                      <li className="flex items-center">
+                        <CircleDot className="shrink-0 text-gray-400 mr-3 w-4 h-4" />
+                        <span className="text-sm text-gray-600">
+                          Rent {post.tag1}
+                        </span>
+                      </li>
+
                       <li className="flex items-center">
                         <MapPin className="shrink-0 text-gray-400 mr-3 w-4 h-4" />
                         <span className="text-sm text-gray-600">
                           {post.tag3}
-                        </span>
-                      </li>
-                      <li className="flex items-center">
-                        <CircleDot className="shrink-0 text-gray-400 mr-3 w-4 h-4" />
-                        <span className="text-sm text-gray-600">
-                          Rental Type {post.tag1}
-                        </span>
-                      </li>
-                      <li className="flex items-center">
-                        <CreditCard className="shrink-0 text-gray-400 mr-3 w-4 h-4" />
-                        <span className="text-sm text-gray-600">
-                          Price {post.tag2}
                         </span>
                       </li>
                     </ul>

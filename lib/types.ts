@@ -3,10 +3,6 @@ export interface Trip {
   sticky: boolean;
   title: string;
   name: string;
-  images: {
-    url: string;
-    alt: string;
-  }[];
   tag1: string;
   tag2: string;
   tag3: string;
@@ -27,6 +23,10 @@ export interface Boat {
   id: number;
   name: string;
   type: string;
+  images: {
+    url: string;
+    alt: string;
+  }[];
   capacity: number;
   features: {
     length: string;
