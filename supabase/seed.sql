@@ -84,7 +84,19 @@ VALUES
   );
 
 -- Then insert the trips with boat_id references
-INSERT INTO trips (sticky, title, images, tag1, tag2, tag3, date, location, price_amount, boat_id)
+INSERT INTO trips (
+  sticky, 
+  title, 
+  images, 
+  tag1, 
+  tag2, 
+  tag3, 
+  date, 
+  location, 
+  price_amount, 
+  boat_id,
+  description
+)
 VALUES
   (
     true,
@@ -113,7 +125,28 @@ VALUES
     'today',
     'Athens',
     140,
-    (SELECT id FROM boats WHERE name = 'Dufour 37')
+    (SELECT id FROM boats WHERE name = 'Dufour 37'),
+    '## The experience
+
+The Dufour 37 is a modern sailing yacht designed for comfort, style, and exceptional performance. With its sleek lines and innovative features, it offers a unique sailing experience.
+
+## Highlights
+
+The Dufour 37 combines functionality and elegance, making it perfect for sailing enthusiasts.
+
+- 🍳 Fully equipped galley with stove, oven, refrigerator, and ample storage
+- ⚓ Ergonomic cockpit with dual helm stations and folding table
+- 🛋️ Interior finishes and comfortable accommodations
+- 🎵 Music, WiFi and Watersports on board
+
+## Amenities
+
+Onboard, you''ll find everything you need for an enjoyable journey:
+
+- 🛋️ Premium upholstery, LED lighting, and plenty of ventilation
+- 🧭 State-of-the-art navigation instruments, including GPS, autopilot, and chartplotter
+- 🎵 Bluetooth-enabled sound system
+- 🏊‍♂️ Snorkeling gear, paddleboards, and inflatable toys available upon request'
   ),
   (
     false,
@@ -130,5 +163,34 @@ VALUES
     'today',
     'Athens',
     16000,
-    (SELECT id FROM boats WHERE name = 'Bali 4.2 Infinity')
+    (SELECT id FROM boats WHERE name = 'Bali 4.2 Infinity'),
+    '## The experience
+
+Experience the ultimate luxury sailing adventure aboard our brand new Bali 4.2 Infinity catamaran. Perfect for families and groups, this spacious vessel offers exceptional comfort and modern amenities for an unforgettable journey through the Greek Islands.
+
+## Highlights
+
+- 🛥️ Luxurious accommodations for extended sailing trips
+- 🏝️ Perfect platform for island hopping
+- 👨‍👩‍👧‍👦 Ideal for family gatherings or groups of friends
+- ⚓ Stable and comfortable sailing experience
+- 🍽️ Spacious outdoor areas for dining and relaxation
+- ☀️ Multiple sunbathing spaces
+- 🏊‍♂️ Easy water access for swimming and water activities
+
+## Amenities
+
+- 🌡️ Air Conditioning - Stay cool even in Mediterranean heat
+- ⚡ Generator - Reliable power supply for all your needs
+- 💧 Watermaker - Fresh water production while at sea
+- ☀️ Solar Panels - Sustainable energy for extended cruising
+- ⚙️ Electric Winch - Effortless sail handling
+- ⛱️ Bimini - Protection from sun and elements
+- 💨 Sprayhood - Additional weather protection at helm
+- 🛟 Dinghy with Outboard - Easy shore access and exploration
+- 🧭 Modern Navigation Systems:
+  - 📍 GPS - Precise positioning
+  - 🗺️ Chartplotter - Digital navigation and route planning
+  - 🎯 Autopilot - Automated steering assistance
+  - 📡 VHF Radio - Essential communication equipment'
   );

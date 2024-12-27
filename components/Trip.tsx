@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, CircleDot, CreditCard, Calendar } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 import Newsletter from "@/components/newsletter";
 import PostItem from "@/app/(default)/post-item";
@@ -102,113 +103,51 @@ export default function Trip({
                   {post.boat?.name}
                 </span>
                 <h1 className="text-3xl font-extrabold font-inter mb-10">
-                  A daily sailing experience in {post.location}
+                  {post.title} in {post.location}
                 </h1>
-                {/* Job description */}
+                {/* Trip description */}
                 <div className="space-y-8 mb-8">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      The Experience
-                    </h3>
-                    <div className="text-gray-500 space-y-3">
-                      <p>
-                        The Dufour 37 is a modern sailing yacht designed for
-                        comfort, style, and exceptional performance. With its
-                        sleek lines and innovative features, it offers a unique
-                        sailing experience.
-                      </p>
-                    </div>
-                  </div>
-                  {/* Highlights */}
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      Highlights
-                    </h3>
-                    <div className="text-gray-500 space-y-3">
-                      <p>
-                        The Dufour 37 combines functionality and elegance,
-                        making it perfect for sailing enthusiasts.
-                      </p>
-                      <div className="space-y-3">
-                        <p>
-                          🍳 Fully equipped galley with stove, oven,
-                          refrigerator, and ample storage
-                        </p>
-                        <p>
-                          ⚓ Ergonomic cockpit with dual helm stations and
-                          folding table
-                        </p>
-                        <p>
-                          🛋️ Interior finishes and comfortable accommodations
-                        </p>
-                        <p>🎵 Music, WiFi and Watersports on board</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      Amenities
-                    </h3>
-                    <div className="text-gray-500 space-y-3">
-                      <p>
-                        Onboard, you'll find everything you need for an
-                        enjoyable journey:
-                      </p>
-                      <div className="space-y-3">
-                        <p>
-                          🛋️ Premium upholstery, LED lighting, and plenty of
-                          ventilation
-                        </p>
-                        <p>
-                          🧭 State-of-the-art navigation instruments, including
-                          GPS, autopilot, and chartplotter
-                        </p>
-                        <p>🎵 Bluetooth-enabled sound system</p>
-                        <p>
-                          🏊‍♂️ Snorkeling gear, paddleboards, and inflatable toys
-                          available upon request
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  {post.description && (
+                    <ReactMarkdown
+                      components={{
+                        h2: ({ children }) => (
+                          <h3 className="text-xl font-bold text-gray-800 mb-3">
+                            {children}
+                          </h3>
+                        ),
+                        p: ({ children }) => (
+                          <p className="text-gray-500">{children}</p>
+                        ),
+                        ul: ({ children }) => (
+                          <div className="space-y-3">{children}</div>
+                        ),
+                        li: ({ children }) => (
+                          <p className="text-gray-500">{children}</p>
+                        ),
+                      }}
+                      className="space-y-8"
+                    >
+                      {post.description}
+                    </ReactMarkdown>
+                  )}
 
                   {/* Video */}
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      Video
-                    </h3>
-                    <div className="text-gray-500 space-y-3">
-                      <p>
-                        Watch the Dufour 37 in action and see the stunning views
-                        from the water.
-                      </p>
-                      <div className="aspect-w-16 aspect-h-7">
-                        <iframe
-                          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                          title="Dufour 37 Video Tour"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          className="w-full h-96 rounded-lg"
-                        ></iframe>
-                      </div>
+                  <div className="flex flex-col space-y-4">
+                    <h3 className="text-xl font-bold text-gray-800">Video</h3>
+                    <div className="w-full max-w-2xl">
+                      <iframe
+                        src={"https://www.youtube.com/embed/dQw4w9WgXcQ"}
+                        width="100%"
+                        height="315"
+                        title="Trip Video"
+                        frameBorder="0"
+                        allowFullScreen
+                        className="rounded-lg shadow-lg"
+                      ></iframe>
                     </div>
                   </div>
 
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      Charter Information
-                    </h3>
-                    <div className="text-gray-500 space-y-3">
-                      <ul className="list-disc list-inside space-y-3">
-                        <li>Accommodates up to 6 guests comfortably</li>
-                        <li>Available only for daily skippered charter</li>
-                        <li>
-                          Perfect for group adventures with friends and family
-                        </li>
-                        <li>Flexible booking options and competitive rates</li>
-                      </ul>
-                    </div>
-                  </div>
+                  {/* Keep the existing specifications section */}
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 mb-3">
                       Specifications
