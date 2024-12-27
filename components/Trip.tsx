@@ -277,16 +277,20 @@ export default function Trip({
                   </ul>
                 </div>
               </div>
-              {/* Related trips */}
+              {/* Other trips */}
               <div className="mb-8">
                 <h4 className="text-2xl font-bold font-inter mb-8">
-                  Related Trips
+                  Other Trips
                 </h4>
                 {/* List container */}
+                {/* Return 3 other trips that are not the current trip */}
                 <div className="flex flex-col border-t border-gray-200">
-                  {posts.slice(1, 4).map((post) => {
-                    return <PostItem key={post.id} {...post} />;
-                  })}
+                  {posts
+                    .filter((p) => p.id !== post.id)
+                    .slice(0, 3)
+                    .map((post) => {
+                      return <PostItem key={post.id} {...post} />;
+                    })}
                 </div>
               </div>
 
