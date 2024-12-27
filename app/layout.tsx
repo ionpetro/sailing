@@ -1,6 +1,7 @@
 import "./css/style.css";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Inter, Nothing_You_Could_Do } from "next/font/google";
 import { MantineProvider } from "@mantine/core";
@@ -53,6 +54,7 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
             {children}
           </div>
+          <Analytics />
         </MantineProvider>
       </body>
     </html>
