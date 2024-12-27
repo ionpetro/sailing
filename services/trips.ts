@@ -19,7 +19,7 @@ export default async function getAllTrips(): Promise<TripType[]> {
       throw error;
     }
 
-    console.log(data);
+    console.log(JSON.stringify(data, null, 2));
 
     return data;
   } catch (error) {

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, CircleDot, CreditCard, Calendar } from "lucide-react";
@@ -42,10 +41,10 @@ export default function Trip({
                       src={post.images[0].url}
                       width={100}
                       height={100}
-                      alt={post.name}
+                      alt={post.boat?.name || "Boat image"}
                     />
                     <p className="text-lg text-indigo-500 font-nycd mt-1">
-                      {post.name}
+                      {post.boat?.name}
                     </p>
                     <h2 className="text-2xl font-bold text-gray-800 font-inter">
                       {post.title}
@@ -100,7 +99,7 @@ export default function Trip({
                   </Link>
                 </div>
                 <span className="text-indigo-500 text-lg font-nycd">
-                  {post.name} aka {post.title}
+                  {post.boat?.name}
                 </span>
                 <h1 className="text-3xl font-extrabold font-inter mb-10">
                   A daily sailing experience in {post.location}

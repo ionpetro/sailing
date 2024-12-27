@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Wifi, Anchor, Calendar, Fan, Bed } from "lucide-react";
+import { Wifi, Anchor, Calendar, Fan, Bed, Ruler } from "lucide-react";
 import { Trip } from "@/lib/types";
 
 export default function PostItem({ ...props }: Trip) {
@@ -47,27 +47,51 @@ export default function PostItem({ ...props }: Trip) {
                   {props.title}
                 </Link>
               </div>
+              {/* cabins */}
               <div className="flex flex-wrap gap-4 mb-3">
-                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
-                  <Fan className="w-3 h-3 mr-1" />
-                  Air condition
-                </div>
-                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
-                  <Bed className="w-3 h-3 mr-1" />
-                  Cabins: 6
-                </div>
-                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
-                  <Wifi className="w-3 h-3 mr-1" />
-                  Wifi
-                </div>
-                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
-                  <Anchor className="w-3 h-3 mr-1" />
-                  Berths: 12
-                </div>
-                <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
-                  <Calendar className="w-3 h-3 mr-1" />
-                  Refit: 2024
-                </div>
+                {props.boat?.features?.cabins && (
+                  <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                    <Bed className="w-3 h-3 mr-1" />
+                    Cabins: {props.boat.features.cabins}
+                  </div>
+                )}
+                {/* berths */}
+                {props.boat?.berth_count && (
+                  <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                    <Anchor className="w-3 h-3 mr-1" />
+                    Berths: {props.boat.berth_count}
+                  </div>
+                )}
+                {/* air conditioning */}
+                {props.boat?.specifications?.equipment?.includes(
+                  "Air Conditioning"
+                ) && (
+                  <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                    <Fan className="w-3 h-3 mr-1" />
+                    Air condition
+                  </div>
+                )}
+                {/* wifi */}
+                {props.boat?.specifications?.equipment?.includes("Wifi") && (
+                  <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                    <Wifi className="w-3 h-3 mr-1" />
+                    Wifi
+                  </div>
+                )}
+                {/* refit */}
+                {props.boat?.last_refit && (
+                  <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                    <Calendar className="w-3 h-3 mr-1" />
+                    Refit: {props.boat.last_refit}
+                  </div>
+                )}
+                {/* length */}
+                {props.boat?.length_meters && (
+                  <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
+                    <Ruler className="w-3 h-3 mr-1" />
+                    Length: {Math.round(props.boat.length_meters)} m
+                  </div>
+                )}
               </div>
               <div className="-m-1">
                 <a
