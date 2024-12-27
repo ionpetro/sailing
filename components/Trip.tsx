@@ -9,8 +9,15 @@ import Newsletter from "@/components/newsletter";
 import PostItem from "@/app/(default)/post-item";
 import ImageGallery from "@/components/ui/image-gallery";
 import BookingShort from "./booking/BookingShort";
+import { Trip as TripType } from "@/lib/types";
 
-export default function Trip({ post, posts }: { post: Trip; posts: Trip[] }) {
+export default function Trip({
+  post,
+  posts,
+}: {
+  post: TripType;
+  posts: TripType[];
+}) {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">

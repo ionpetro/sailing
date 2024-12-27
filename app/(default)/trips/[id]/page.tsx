@@ -1,13 +1,13 @@
-import getAllPosts from "@/lib/getAllPosts";
+import getAllTrips from "@/services/trips";
 import { notFound } from "next/navigation";
 import Trip from "@/components/Trip";
-
+import { Trip as TripType } from "@/lib/types";
 export async function generateStaticParams() {
   try {
-    const postsData: Promise<Trip[]> = getAllPosts();
+    const postsData: Promise<TripType[]> = getAllTrips();
     const posts = await postsData;
 
-    return posts.map((post: Trip) => ({
+    return posts.map((post: TripType) => ({
       id: post.id.toString(),
     }));
   } catch (error) {
@@ -21,7 +21,7 @@ export async function generateMetadata({
 }: {
   params: any;
 }): Promise<any> {
-  const postsData: Promise<Trip[]> = getAllPosts();
+  const postsData: Promise<TripType[]> = getAllTrips();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
 
@@ -38,7 +38,7 @@ export async function generateMetadata({
 }
 
 export default async function Post({ params }: { params: any }) {
-  const postsData: Promise<Trip[]> = getAllPosts();
+  const postsData: Promise<TripType[]> = getAllTrips();
   const posts = await postsData;
   const post = posts.find((post) => post.id === Number(params.id));
 

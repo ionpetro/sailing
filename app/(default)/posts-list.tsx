@@ -1,25 +1,12 @@
-import getAllPosts from "@/lib/getAllPosts";
-import PostItem from "./post-item";
 import Newsletter from "@/components/newsletter";
-
-interface Trip {
-  id: number;
-  featured: boolean;
-  title: string;
-  route: string;
-  image: string;
-  duration: string;
-  price: string;
-  departureDate: string;
-  capacity: number;
-}
+import getAllTrips from "@/services/trips";
+import PostItem from "./post-item";
+import { Trip } from "@/lib/types";
 
 export default async function PostsList() {
-  const postsData: Promise<Trip[]> = getAllPosts();
+  const postsData: Promise<Trip[]> = getAllTrips();
 
   const posts = await postsData;
-
-  console.log(posts);
 
   return (
     <div className="pb-8 md:pb-16">

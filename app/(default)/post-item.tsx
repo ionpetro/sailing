@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AirVent, Home, Wifi, Anchor, Calendar, Fan, Bed } from "lucide-react";
+import { Wifi, Anchor, Calendar, Fan, Bed } from "lucide-react";
+import { Trip } from "@/lib/types";
 
-export default function PostItem({ ...props }) {
+export default function PostItem({ ...props }: Trip) {
   return (
     <div
       className={`[&:nth-child(-n+12)]:-order-1 group ${
@@ -26,7 +27,7 @@ export default function PostItem({ ...props }) {
             <div>
               <div className="flex datas-start space-x-2">
                 <div className="text-sm text-gray-800 font-semibold mb-1">
-                  {props.name}
+                  {props.boat?.name}
                 </div>
                 {props.sticky && (
                   <svg

@@ -1,10 +1,16 @@
-import { supabase } from "./supabase";
+import { supabase } from "../lib/supabase";
+import { Trip as TripType } from "../lib/types";
 
-export default async function getAllPosts() {
+export default async function getAllTrips(): Promise<TripType[]> {
   try {
     const { data, error } = await supabase
       .from("trips")
-      .select("*")
+      .select(
+        `
+        *,
+        boat:boats(*)
+      `
+      )
       .order("sticky", { ascending: false })
       .order("id", { ascending: true });
 
@@ -12,6 +18,8 @@ export default async function getAllPosts() {
       console.error("Error fetching trips:", error);
       throw error;
     }
+
+    console.log(data);
 
     return data;
   } catch (error) {
