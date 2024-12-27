@@ -216,10 +216,68 @@ export default function Trip({
                     </h3>
                     <div className="text-gray-500 space-y-3">
                       <ul className="list-disc list-inside space-y-3">
-                        <li>Length Overall: 10.77 meters (35 feet 4 inches)</li>
-                        <li>Beam (Width): 3.80 meters (12 feet 5 inches)</li>
-                        <li>Draft: 1.90 meters (6 feet 2 inches)</li>
-                        <li>Maximum Speed: Approximately 8 knots</li>
+                        {post.boat && (
+                          <>
+                            <li>
+                              Length Overall: {post.boat.length_meters} meters (
+                              {(post.boat.length_meters * 3.28084).toFixed(1)}{" "}
+                              feet)
+                            </li>
+                            <li>
+                              Beam (Width): {post.boat.beam_meters} meters (
+                              {(post.boat.beam_meters * 3.28084).toFixed(1)}{" "}
+                              feet)
+                            </li>
+                            <li>
+                              Draft: {post.boat.draft_meters} meters (
+                              {(post.boat.draft_meters * 3.28084).toFixed(1)}{" "}
+                              feet)
+                            </li>
+                            <li>
+                              Maximum Speed: {post.boat.max_speed_knots} knots
+                            </li>
+                            {post.boat.year_built && (
+                              <li>Year Built: {post.boat.year_built}</li>
+                            )}
+                            {post.boat.last_refit && (
+                              <li>Last Refit: {post.boat.last_refit}</li>
+                            )}
+                            {post.boat.specifications?.engine && (
+                              <li>Engine: {post.boat.specifications.engine}</li>
+                            )}
+                            {post.boat.specifications?.fuel_capacity && (
+                              <li>
+                                Fuel Capacity:{" "}
+                                {post.boat.specifications.fuel_capacity}L
+                              </li>
+                            )}
+                            {post.boat.specifications?.water_capacity && (
+                              <li>
+                                Water Capacity:{" "}
+                                {post.boat.specifications.water_capacity}L
+                              </li>
+                            )}
+                            {post.boat.specifications?.navigation &&
+                              post.boat.specifications.navigation.length >
+                                0 && (
+                                <li>
+                                  Navigation Equipment:{" "}
+                                  {post.boat.specifications.navigation.join(
+                                    ", "
+                                  )}
+                                </li>
+                              )}
+                            {post.boat.specifications?.equipment &&
+                              post.boat.specifications.equipment.length > 0 && (
+                                <li>
+                                  Additional Equipment:{" "}
+                                  {post.boat.specifications.equipment.join(
+                                    ", "
+                                  )}
+                                </li>
+                              )}
+                          </>
+                        )}
                       </ul>
                     </div>
                   </div>
