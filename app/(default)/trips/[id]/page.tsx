@@ -1,28 +1,31 @@
+import { Metadata } from "next";
 import getAllTrips from "@/services/trips";
 import { notFound } from "next/navigation";
 import Trip from "@/components/Trip";
 import { Trip as TripType } from "@/lib/types";
-export async function generateStaticParams() {
-  try {
-    const postsData: Promise<TripType[]> = getAllTrips();
-    const posts = await postsData;
 
-    return posts.map((post: TripType) => ({
+interface PageParams {
+  id: string;
+}
+
+export async function generateStaticParams(): Promise<PageParams[]> {
+  try {
+    const posts = await getAllTrips();
+    return posts.map((post) => ({
       id: post.id.toString(),
     }));
   } catch (error) {
     console.error("Error generating static params:", error);
-    return []; // Return empty array as fallback
+    return [];
   }
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: any;
-}): Promise<any> {
-  const postsData: Promise<TripType[]> = getAllTrips();
-  const posts = await postsData;
+  params: PageParams;
+}): Promise<Metadata> {
+  const posts: TripType[] = await getAllTrips();
   const post = posts.find((post) => post.id === Number(params.id));
 
   if (!post) {
@@ -32,14 +35,13 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.name} - ${post.title}`,
-    description: `Experience sailing aboard the ${post.name} in ${post.location}`,
+    title: post.title,
+    description: `Experience sailing aboard the ${post.title} in ${post.location}`,
   };
 }
 
-export default async function Post({ params }: { params: any }) {
-  const postsData: Promise<TripType[]> = getAllTrips();
-  const posts = await postsData;
+export default async function Post({ params }: { params: PageParams }) {
+  const posts = await getAllTrips();
   const post = posts.find((post) => post.id === Number(params.id));
 
   if (!post) {

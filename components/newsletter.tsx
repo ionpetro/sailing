@@ -9,7 +9,7 @@ export default function Newsletter() {
         We know everyone in Greece
       </div>
       <div className="text-2xl font-bold mb-5">
-        Send us your email and we'll get back to you.
+        Share your email and we'll get back to you.
       </div>
       <form className="inline-flex max-w-sm">
         <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none">
