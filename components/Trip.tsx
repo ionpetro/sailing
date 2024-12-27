@@ -119,10 +119,12 @@ export default function Trip({
                           <p className="text-gray-500">{children}</p>
                         ),
                         ul: ({ children }) => (
-                          <div className="space-y-3">{children}</div>
+                          <ul className="space-y-3">{children}</ul>
                         ),
                         li: ({ children }) => (
-                          <p className="text-gray-500">{children}</p>
+                          <li className="text-gray-500 list-none">
+                            {children}
+                          </li>
                         ),
                       }}
                       className="space-y-8"
