@@ -8,7 +8,7 @@ interface PageParams {
   id: string;
 }
 
-export async function generateStaticParams(): Promise<PageParams[]> {
+export async function generateStaticParams(): Promise<any[]> {
   try {
     const posts = await getAllTrips();
     return posts.map((post) => ({
@@ -23,7 +23,7 @@ export async function generateStaticParams(): Promise<PageParams[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: PageParams;
+  params: any;
 }): Promise<Metadata> {
   const posts: TripType[] = await getAllTrips();
   const post = posts.find((post) => post.id === Number(params.id));
@@ -40,7 +40,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: { params: PageParams }) {
+export default async function Post({ params }: { params: any }) {
   const posts = await getAllTrips();
   const post = posts.find((post) => post.id === Number(params.id));
 
