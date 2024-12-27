@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, CircleDot, CreditCard, Calendar } from "lucide-react";
+import { MapPin, CircleDot, Calendar } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 import Newsletter from "@/components/newsletter";

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Post a Trip - SailVoyages",
+  title: "Post a Trip - SailwiththeBoys",
   description: "Share your sailing adventure with others",
 };
 

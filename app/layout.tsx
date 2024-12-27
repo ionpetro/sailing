@@ -22,7 +22,7 @@ const nycd = Nothing_You_Could_Do({
 });
 
 export const metadata: Metadata = {
-  title: "SailVoyages",
+  title: "SailwiththeBoys",
   description: "Book your dream sailing adventure in the Greek Islands",
   icons: {
     icon: [

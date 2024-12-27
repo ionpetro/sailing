@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Home - SailVoyages",
+  title: "Home - SailwiththeBoys",
   description: "Book your dream sailing adventure in the Greek Islands",
 };
 import Hero from "@/components/hero";
