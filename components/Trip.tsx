@@ -21,7 +21,7 @@ export default function Trip({
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-12 pb-8 md:pt-20 md:pb-16">
+        <div className="pt-16 pb-8 md:pt-20 md:pb-16">
           <ImageGallery images={post.boat?.images || []} />
           <div
             className="mt-8 md:flex md:justify-between"
@@ -40,8 +40,8 @@ export default function Trip({
                     <Image
                       className="inline-flex mb-2 rounded-xl"
                       src={post.boat?.images[0].url || ""}
-                      width={180}
-                      height={180}
+                      width={80}
+                      height={80}
                       alt={post.boat?.name || "Boat image"}
                     />
                     <p className="text-lg text-indigo-500 font-nycd mt-1">

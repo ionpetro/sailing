@@ -26,11 +26,26 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       {/* Main Slider */}
       <Swiper
         modules={[Navigation, Thumbs]}
-        navigation
+        navigation={{
+          enabled: true,
+          hideOnClick: false,
+        }}
+        breakpoints={{
+          0: {
+            navigation: {
+              enabled: false,
+            },
+          },
+          640: {
+            navigation: {
+              enabled: true,
+            },
+          },
+        }}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
-        className="h-[600px] mb-2"
+        className="h-[300px] sm:h-[600px] mb-2"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
@@ -55,7 +70,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
-        className="h-24"
+        className="h-16 sm:h-24"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
