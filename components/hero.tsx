@@ -36,7 +36,7 @@ export default function Hero() {
             <h1 className="h1 font-inter mb-6">
               Experience the beauty of the Greek Islands by{" "}
               <span className="font-nycd text-indigo-500 font-normal">
-                sail
+                sailing
               </span>
             </h1>
             <p className="text-lg text-gray-500 mb-8">
@@ -46,20 +46,8 @@ export default function Hero() {
               sailing experiences.
             </p>
             {/* Button + Avatars */}
-            <div className="flex items-center justify-center space-y-6 sm:space-y-0 sm:space-x-5">
-              <div>
-                <Link
-                  className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm group"
-                  href="#upcoming-trips"
-                  scroll
-                >
-                  Explore Trips{" "}
-                  <span className="tracking-normal text-indigo-200 group-hover:translate-y-0.5 transition-transform duration-150 ease-in-out ml-1">
-                    ↓
-                  </span>
-                </Link>
-              </div>
-              <div className="flex items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
+            <div className="flex flex-col items-center justify-center space-y-6">
+              <div className="flex items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3 order-1 sm:order-none">
                 <div className="inline-flex -space-x-3 -ml-0.5">
                   <Image
                     className="rounded-full border-2 border-indigo-50 box-content"
@@ -93,6 +81,18 @@ export default function Hero() {
                 <div className="text-sm text-gray-500 font-medium">
                   Join <span className="text-indigo-500">100+</span> travelers
                 </div>
+              </div>
+              <div className="order-2 sm:order-none">
+                <Link
+                  className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm group"
+                  href="#upcoming-trips"
+                  scroll
+                >
+                  Explore Trips{" "}
+                  <span className="tracking-normal text-indigo-200 group-hover:translate-y-0.5 transition-transform duration-150 ease-in-out ml-1">
+                    ↓
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
