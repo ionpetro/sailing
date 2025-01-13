@@ -5,9 +5,7 @@ import TestimonialsImage02 from "@/public/images/testimonial-02.jpg";
 export default function Testimonials() {
   return (
     <div>
-      <h2 className="text-3xl font-bold font-inter mb-10">
-        Our customers love us
-      </h2>
+      <h2 className="text-3xl font-bold font-inter mb-10">Travelers love us</h2>
       {/* Testimonials container */}
       <div className="space-y-10">
         {/* Item */}

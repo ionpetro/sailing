@@ -5,6 +5,7 @@ import Avatar01 from "@/public/images/avatar-01.jpg";
 import Avatar02 from "@/public/images/avatar-02.jpg";
 import Avatar03 from "@/public/images/avatar-03.jpg";
 import Avatar04 from "@/public/images/avatar-04.jpg";
+import { Play } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -45,6 +46,17 @@ export default function Hero() {
               <br className="hidden md:block" /> aboard our carefully curated
               sailing experiences.
             </p>
+            {/* Video */}
+            <div className="relative aspect-video mb-8">
+              <iframe
+                src="https://player.vimeo.com/video/1046446082?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                className="absolute inset-0 h-full w-full rounded-lg outline-none"
+                width="1920"
+                height="1080"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                title="intro1"
+              />
+            </div>
             {/* Button + Avatars */}
             <div className="flex flex-col items-center justify-center space-y-6">
               <div className="flex items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3 order-1 sm:order-none">
