@@ -34,12 +34,30 @@ export default function Hero() {
           {/* Hero content */}
           <div className="max-w-3xl mx-auto text-center">
             {/* Copy */}
-            <h1 className="h1 font-inter mb-6">
-              Experience the beauty of the Greek Islands by{" "}
-              <span className="font-nycd text-indigo-500 font-normal">
-                sailing
-              </span>
-            </h1>
+            <div className="relative">
+              <div
+                className="absolute -top-6 -left-6"
+                style={{ transform: "rotate(-15deg)" }}
+              >
+                <span className="inline-block animate-[bounce_4s_ease-in-out_infinite] text-4xl opacity-80">
+                  🌴
+                </span>
+              </div>
+              <div
+                className="absolute -top-6 -right-6"
+                style={{ transform: "rotate(15deg)" }}
+              >
+                <span className="inline-block animate-[bounce_4s_ease-in-out_infinite] text-4xl opacity-80">
+                  ☀️
+                </span>
+              </div>
+              <h1 className="h1 font-inter mb-6">
+                Experience the beauty of the Greek Islands by{" "}
+                <span className="font-nycd text-indigo-500 font-normal">
+                  sailing
+                </span>
+              </h1>
+            </div>
             <p className="text-lg text-gray-500 mb-8">
               Discover hidden coves, crystal-clear waters, and charming island
               villages
