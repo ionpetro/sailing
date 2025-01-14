@@ -4,9 +4,9 @@ import { supabase } from "@/lib/supabase";
 import BookingSuccess from "@/components/booking/BookingSuccess";
 
 interface PageProps {
-  searchParams: {
+  searchParams: Promise<{
     session_id?: string;
-  };
+  }>;
 }
 
 export default async function SuccessPage({ searchParams }: PageProps) {

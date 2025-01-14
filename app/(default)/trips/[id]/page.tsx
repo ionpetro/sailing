@@ -5,9 +5,9 @@ import Trip from "@/components/Trip";
 import { Trip as TripType } from "@/lib/types";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -26,7 +26,8 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const posts: TripType[] = await getAllTrips();
-  const post = posts.find((post) => post.id === Number(params.id));
+  const pageParams = await params;
+  const post = posts.find((post) => post.id === Number(pageParams.id));
 
   if (!post) {
     return {
@@ -42,7 +43,8 @@ export async function generateMetadata({
 
 export default async function Post({ params }: PageProps) {
   const posts = await getAllTrips();
-  const post = posts.find((post) => post.id === Number(params.id));
+  const pageParams = await params;
+  const post = posts.find((post) => post.id === Number(pageParams.id));
 
   if (!post) {
     notFound();
