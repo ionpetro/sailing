@@ -41,7 +41,7 @@ export default async function SuccessPage({ searchParams }: PageProps) {
         data: { user: anonUser },
         error: signUpError,
       } = await supabase.auth.signUp({
-        email: `anon_${Date.now()}@example.com`,
+        email: `anon_${Date.now()}@sailwiththeboys.com`,
         password: crypto.randomUUID(),
       });
 
