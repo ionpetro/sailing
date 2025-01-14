@@ -18,44 +18,41 @@
 
 html {
     scroll-behavior: smooth;
-  }
+}
 
 /* custom */
-
-/* Swiper custom navigation colors */
 :root {
-    --swiper-navigation-color: #5270BA;
-    --swiper-pagination-color: #5270BA;
-  }
-  
-  /* Custom Swiper styles */
-  .swiper-button-next,
-  .swiper-button-prev {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    width: 40px !important;
-    height: 40px !important;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    background-color: rgba(255, 255, 255, 1);
-  }
-  
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    font-size: 20px !important;
-    font-weight: bold;
-    color: #4f46e5; /* indigo-500 */
-  }
-  
-  /* Optional: Adjust position from edges */
-  .swiper-button-next {
-    right: 16px !important;
-  }
-  
-  .swiper-button-prev {
-    left: 16px !important;
-  }
-  
+  --swiper-navigation-color: #5270BA;
+  --swiper-pagination-color: #5270BA;
+}
+
+/* Custom Swiper styles */
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
+  font-weight: bold;
+  color: #4f46e5; /* indigo-500 */
+}
+
+/* Optional: Adjust position from edges */
+.swiper-button-next {
+  right: 16px !important;
+}
+
+.swiper-button-prev {
+  left: 16px !important;
+}

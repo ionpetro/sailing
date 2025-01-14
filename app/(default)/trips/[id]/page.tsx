@@ -4,11 +4,13 @@ import { notFound } from "next/navigation";
 import Trip from "@/components/Trip";
 import { Trip as TripType } from "@/lib/types";
 
-interface PageParams {
-  id: string;
+interface PageProps {
+  params: {
+    id: string;
+  };
 }
 
-export async function generateStaticParams(): Promise<any[]> {
+export async function generateStaticParams() {
   try {
     const posts = await getAllTrips();
     return posts.map((post) => ({
@@ -22,9 +24,7 @@ export async function generateStaticParams(): Promise<any[]> {
 
 export async function generateMetadata({
   params,
-}: {
-  params: any;
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const posts: TripType[] = await getAllTrips();
   const post = posts.find((post) => post.id === Number(params.id));
 
@@ -40,7 +40,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: { params: any }) {
+export default async function Post({ params }: PageProps) {
   const posts = await getAllTrips();
   const post = posts.find((post) => post.id === Number(params.id));
 

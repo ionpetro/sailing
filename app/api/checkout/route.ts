@@ -8,8 +8,17 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { basePrice, serviceFee, tax, guests, date, tripId, tripTitle } =
-      body;
+    const { basePrice, tax, guests, date, tripId, tripTitle } = body;
+
+    // Ensure we have valid numbers for the price calculation
+    const totalAmount = Math.round(basePrice + tax);
+
+    if (isNaN(totalAmount) || totalAmount <= 0) {
+      return NextResponse.json(
+        { error: "Invalid price calculation" },
+        { status: 400 }
+      );
+    }
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -23,7 +32,7 @@ export async function POST(request: Request) {
                 guests > 1 ? "s" : ""
               } on ${date}`,
             },
-            unit_amount: Math.round((basePrice + serviceFee + tax) * 100), // Stripe expects amounts in cents
+            unit_amount: totalAmount * 100, // Convert to cents
           },
           quantity: 1,
         },
