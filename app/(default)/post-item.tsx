@@ -26,7 +26,7 @@ export default function PostItem({ ...props }: Trip) {
           <div className="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
             <div>
               <div className="flex datas-start space-x-2">
-                <div className="text-sm text-gray-800 font-semibold mb-1">
+                <div className="text-sm text-indigo-500 font-nycd mb-1">
                   {props.boat?.name}
                 </div>
                 {props.sticky && (

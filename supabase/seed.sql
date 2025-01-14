@@ -65,64 +65,64 @@ VALUES
     }'::jsonb
   ),
   (
-    'Bali 4.2 Infinity',
+    'Bali 4.2',
     'Catamaran',
     '[
       {
         "url": "/images/bali42/Bali-42-Infinity-2-optimized.jpg",
-        "alt": "Bali 4.2 Infinity - Main"
+        "alt": "Bali 4.2 - Main"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-3-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-4-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-5-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-6-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-7-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-8-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-9-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-10-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-11-optimized.jpg",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-12-optimized.webp",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-13-optimized.webp",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Bali-42-Infinity-14-optimized.webp",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       },
       {
         "url": "/images/bali42/Layout-Bali-42-optimized.webp",
-        "alt": "Bali 4.2 Infinity"
+        "alt": "Bali 4.2"
       }
     ]',
     10,
@@ -209,16 +209,16 @@ Onboard, you''ll find everything you need for an enjoyable journey:
   (
     false,
     'A lux trip with a catamaran',
-    'weekly',
-    'from €16,000',
+    'daily',
+    'from €170',
     '🇬🇷 Athens, Greece',
     'today',
     'Athens',
-    16000,
-    (SELECT id FROM boats WHERE name = 'Bali 4.2 Infinity'),
+    170,
+    (SELECT id FROM boats WHERE name = 'Bali 4.2'),
     '## The experience
 
-Experience the ultimate luxury sailing adventure aboard our brand new Bali 4.2 Infinity catamaran. Perfect for families and groups, this spacious vessel offers exceptional comfort and modern amenities for an unforgettable journey through the Greek Islands.
+Experience the ultimate luxury sailing adventure aboard our brand new Bali 4.2 catamaran. Perfect for families and groups, this spacious vessel offers exceptional comfort and modern amenities for an unforgettable journey through the Greek Islands.
 
 ## Highlights
 
