@@ -23,14 +23,15 @@ export default function Header() {
                   Sign in
                 </Link>
               </li>
-              <li className="ml-3">
+              {/* HIDE THE POST YOUR BOAT BUTTON FOR NOW */}
+              {/* <li className="ml-3">
                 <Link
                   className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm"
                   href="/post-trip"
                 >
                   Post your Boat
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>
