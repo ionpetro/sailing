@@ -5,7 +5,6 @@ import Avatar01 from "@/public/images/avatar-01.jpg";
 import Avatar02 from "@/public/images/avatar-02.jpg";
 import Avatar03 from "@/public/images/avatar-03.jpg";
 import Avatar04 from "@/public/images/avatar-04.jpg";
-import { Play } from "lucide-react";
 
 export default function Hero() {
   return (

@@ -132,21 +132,28 @@ export default function Trip({
                   {/* Video */}
                   <div className="flex flex-col space-y-4">
                     <h3 className="text-xl font-bold text-gray-800">Video</h3>
-                    <div className="w-full max-w-2xl">
+                    <div
+                      className="w-full max-w-2xl relative"
+                      style={{ paddingBottom: "56.25%" }}
+                    >
                       <iframe
-                        src={"https://www.youtube.com/embed/dQw4w9WgXcQ"}
-                        width="100%"
-                        height="315"
-                        title="Trip Video"
+                        src="https://player.vimeo.com/video/1052832118?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;quality=2K"
                         frameBorder="0"
-                        allowFullScreen
-                        className="rounded-lg shadow-lg"
-                      ></iframe>
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                        }}
+                        title="A fun sailing trip"
+                      />
                     </div>
                   </div>
 
                   {/* Keep the existing specifications section */}
-                  <div>
+                  {/* <div>
                     <h3 className="text-xl font-bold text-gray-800 mb-3">
                       Specifications
                     </h3>
@@ -216,7 +223,7 @@ export default function Trip({
                         )}
                       </ul>
                     </div>
-                  </div>
+                  </div> */}
                   <p className="mt-4">
                     Whether you're seeking a romantic getaway, a family
                     adventure, or a fun outing with friends, this yacht promises
@@ -270,7 +277,7 @@ export default function Trip({
                           viewBox="0 0 32 32"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path d="M22.968 10.276a.338.338 0 0 0-.232-.253 1.192 1.192 0 0 0-.63.045s-14.019 5.038-14.82 5.596c-.172.121-.23.19-.259.272-.138.4.293.573.293.573l3.613 1.177a.388.388 0 0 0 .183-.011c.822-.519 8.27-5.222 8.7-5.38.068-.02.118 0 .1.049-.172.6-6.606 6.319-6.64 6.354a.138.138 0 0 0-.05.118l-.337 3.528s-.142 1.1.956 0a30.66 30.66 0 0 1 1.9-1.738c1.242.858 2.58 1.806 3.156 2.3a1 1 0 0 0 .732.283.825.825 0 0 0 .7-.622s2.561-10.275 2.646-11.658c.008-.135.021-.217.021-.317a1.177 1.177 0 0 0-.032-.316Z" />
+                          <path d="M22.968 10.276a.338.338 0 0 0-.232-.253 1.192 1.192 0 0 0-.63.045s-14.019 5.038-14.82 5.596c-.172.121-.23.19-.259.272-.138.4.293.573.293.573l3.613 1.177a.388.388 0 0 0 .183-.011c.822-.519 8.27-5.222 8.7-5.38.068-.02.118 0 .1.049-.172.6-6.606 6.319-6.64 6.654a.138.138 0 0 0-.05.118l-.337 3.528s-.142 1.1.956 0a30.66 30.66 0 0 1 1.9-1.738c1.242.858 2.58 1.806 3.156 2.3a1 1 0 0 0 .732.283.825.825 0 0 0 .7-.622s2.561-10.275 2.646-11.658c.008-.135.021-.217.021-.317a1.177 1.177 0 0 0-.032-.316Z" />
                         </svg>
                       </a>
                     </li>

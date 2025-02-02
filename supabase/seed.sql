@@ -21,31 +21,12 @@ VALUES
   (
     'Dufour 37',
     'Sailing Yacht',
-    '[
-      {
-        "url": "/images/dufour/dufour2.jpg",
-        "alt": "Dufour 37 - Main"
-      },
-      {
-        "url": "/images/dufour/dufour3.webp",
-        "alt": "Dufour 37 - Exterior"
-      },
-      {
-        "url": "/images/dufour/dufour5.jpg",
-        "alt": "Dufour 37 - Exterior 2"
-      },
-      {
-        "url": "/images/dufour/dufour4.jpg",
-        "alt": "Dufour 37 - Interior"
-      }
-    ]',
+    '[{"url": "/images/dufour/diconsta1.png", "alt": "Dufour 37 - Main"},
+     {"url": "/images/dufour/diconsta2.png", "alt": "Dufour 37 - Exterior"},
+      {"url": "/images/dufour/diconsta3.png", "alt": "Dufour 37 - Exterior 2"},
+       {"url": "/images/dufour/diconsta4.png", "alt": "Dufour 37 - Interior"}]'::jsonb,
     8,
-    '{
-      "length": "37 feet",
-      "cabins": 3,
-      "bathrooms": 1,
-      "year": 2020
-    }',
+    '{"length": "37 feet", "cabins": 3, "bathrooms": 1, "year": 2020}'::jsonb,
     11.28,  -- length_meters (37 feet)
     3.77,   -- beam_meters
     1.90,   -- draft_meters
@@ -56,108 +37,25 @@ VALUES
     '37',      -- model
     3,         -- cabin_count
     6,         -- berth_count
-    '{
-      "sail_area": 65,
-      "engine": "Volvo Penta 30HP",
-      "fuel_capacity": 200,
-      "water_capacity": 330,
-      "navigation": ["GPS", "Autopilot", "VHF Radio"]
-    }'::jsonb
+    '{"sail_area": 65, "engine": "Volvo Penta 30HP", "fuel_capacity": 200, "water_capacity": 330, "navigation": ["GPS", "Autopilot", "VHF Radio"]}'::jsonb
   ),
   (
     'Bali 4.2',
     'Catamaran',
-    '[
-      {
-        "url": "/images/bali42/Bali-42-Infinity-2-optimized.jpg",
-        "alt": "Bali 4.2 - Main"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-3-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-4-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-5-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-6-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-7-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-8-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-9-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-10-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-11-optimized.jpg",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-12-optimized.webp",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-13-optimized.webp",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Bali-42-Infinity-14-optimized.webp",
-        "alt": "Bali 4.2"
-      },
-      {
-        "url": "/images/bali42/Layout-Bali-42-optimized.webp",
-        "alt": "Bali 4.2"
-      }
-    ]',
+    '[{"url": "/images/bali42/Bali-42-Infinity-2-optimized.jpg", "alt": "Bali 4.2 - Main"}, {"url": "/images/bali42/Bali-42-Infinity-3-optimized.jpg", "alt": "Bali 4.2"}, {"url": "/images/bali42/Bali-42-Infinity-4-optimized.jpg", "alt": "Bali 4.2"}]'::jsonb,
     10,
-    '{
-      "length": "42 feet",
-      "cabins": 6,
-      "bathrooms": 5,
-      "year": 2024
-    }',
+    '{"length": "42 feet", "cabins": 6, "bathrooms": 5, "year": 2024}'::jsonb,
     12.28,  -- length_meters
     7.07,   -- beam_meters
     1.22,   -- draft_meters
-    10,     -- max_speed_knots (estimated)
+    10,     -- max_speed_knots
     2024,   -- year_built
-    null,   -- last_refit (new boat)
+    null,   -- last_refit
     'Bali Catamarans',  -- manufacturer
     '4.2',    -- model
-    6,        -- cabin_count (4 double + 2 single)
+    6,        -- cabin_count
     10,       -- berth_count
-    '{
-      "engine": "2×33 hp diesel",
-      "fuel_capacity": 640,
-      "water_capacity": 860,
-      "navigation": ["GPS", "Chartplotter", "Autopilot", "VHF"],
-      "equipment": [
-        "Air Conditioning",
-        "Generator",
-        "Watermaker",
-        "Solar Panels",
-        "Electric Winch",
-        "Bimini",
-        "Sprayhood",
-        "Dinghy with Outboard"
-      ]
-    }'::jsonb
+    '{"engine": "2×33 hp diesel", "fuel_capacity": 640, "water_capacity": 860, "navigation": ["GPS", "Chartplotter", "Autopilot", "VHF"], "equipment": ["Air Conditioning", "Generator", "Watermaker", "Solar Panels", "Electric Winch", "Bimini", "Sprayhood", "Dinghy with Outboard"]}'::jsonb
   );
 
 -- Then insert the trips with boat_id references

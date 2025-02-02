@@ -7,19 +7,19 @@ export async function GET(request: Request) {
       name: "Dufour 37",
       images: [
         {
-          url: "/images/dufour/dufour2.jpg",
+          url: "/images/dufour/diconsta1.png",
           alt: "Dufour 37 - Main",
         },
         {
-          url: "/images/dufour/dufour3.webp",
+          url: "/images/dufour/diconsta2.png",
           alt: "Dufour 37 - Exterior",
         },
         {
-          url: "/images/dufour/dufour5.jpg",
+          url: "/images/dufour/diconsta3.png",
           alt: "Dufour 37 - Exterior 2",
         },
         {
-          url: "/images/dufour/dufour4.jpg",
+          url: "/images/dufour/diconsta4.png",
           alt: "Dufour 37 - Interior",
         },
       ],
@@ -36,19 +36,19 @@ export async function GET(request: Request) {
       name: "Dufour 37",
       images: [
         {
-          url: "/images/dufour/dufour2.jpg",
+          url: "/images/dufour/diconsta1.jpg",
           alt: "Dufour 37 - Main",
         },
         {
-          url: "/images/dufour/dufour3.webp",
+          url: "/images/dufour/diconsta2.jpg",
           alt: "Dufour 37 - Exterior",
         },
         {
-          url: "/images/dufour/dufour5.jpg",
+          url: "/images/dufour/diconsta3.jpg",
           alt: "Dufour 37 - Exterior 2",
         },
         {
-          url: "/images/dufour/dufour4.jpg",
+          url: "/images/dufour/diconsta4.jpg",
           alt: "Dufour 37 - Interior",
         },
       ],
