@@ -18,7 +18,7 @@ export default function AuthLayout({
           <div className="h-full w-full max-w-md px-6 mx-auto flex flex-col after:mt-auto after:flex-1">
             {/* Site header */}
             <header className="flex-1 flex mb-auto">
-              <div className="flex items-center justify-between h-16 md:h-20">
+              <div className="flex items-center justify-between h-10 md:h-16 mt-4">
                 <HeaderLogo />
               </div>
             </header>

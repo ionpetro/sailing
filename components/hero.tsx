@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Illustration from "@/public/images/hero-illustration.svg";
+import Illustration from "@/public/images/background.png";
 import Avatar01 from "@/public/images/avatar-01.jpg";
 import Avatar02 from "@/public/images/avatar-02.jpg";
 import Avatar03 from "@/public/images/avatar-03.jpg";
@@ -8,7 +8,7 @@ import Avatar04 from "@/public/images/avatar-04.jpg";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden min-h-screen">
       {/* Bg */}
       <div
         className="absolute inset-0 bg-gradient-to-b from-indigo-100 to-white pointer-events-none -z-10"
@@ -17,12 +17,12 @@ export default function Hero() {
 
       {/* Illustration */}
       <div
-        className="hidden md:block absolute left-1/2 -translate-x-1/2 pointer-events-none -z-10"
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none -z-10"
         aria-hidden="true"
       >
         <Image
           src={Illustration}
-          className="max-w-none"
+          className="max-w-none min-h-screen"
           priority
           alt="Hero Illustration"
         />
@@ -35,44 +35,41 @@ export default function Hero() {
             {/* Copy */}
             <div className="relative">
               <div
-                className="absolute -top-6 -left-6"
-                style={{ transform: "rotate(-15deg)" }}
-              >
-                <span className="inline-block animate-[bounce_4s_ease-in-out_infinite] text-4xl opacity-80">
-                  🌴
-                </span>
-              </div>
-              <div
                 className="absolute -top-6 -right-6"
                 style={{ transform: "rotate(15deg)" }}
-              >
-                <span className="inline-block animate-[bounce_4s_ease-in-out_infinite] text-4xl opacity-80">
-                  ☀️
-                </span>
-              </div>
-              <h1 className="h1 font-inter mb-6">
+              ></div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-inter mb-6 mt-8">
                 Experience the beauty of the Greek Islands by{" "}
                 <span className="font-nycd text-indigo-500 font-normal">
                   sailing
                 </span>
               </h1>
             </div>
-            <p className="text-lg text-gray-500 mb-8">
+            <p className="text-md md:text-lg text-gray-500 mb-8">
               Discover hidden coves, crystal-clear waters, and charming island
               villages
               <br className="hidden md:block" /> aboard our carefully curated
               sailing experiences.
             </p>
             {/* Video */}
-            <div className="relative aspect-video mb-8">
-              <iframe
-                src="https://player.vimeo.com/video/1047043063?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;quality=2K"
-                className="absolute inset-0 h-full w-full rounded-lg outline-none"
-                width="1920"
-                height="1080"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                title="intro1"
-              />
+            <div className="relative mb-8 max-w-xl mx-auto">
+              <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+                <video
+                  src="/videos/intro.mp4"
+                  controls
+                  playsInline
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  className="rounded-lg object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
             {/* Button + Avatars */}
             <div className="flex flex-col items-center justify-center space-y-6">
