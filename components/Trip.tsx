@@ -130,27 +130,31 @@ export default function Trip({
                   )}
 
                   {/* Video */}
-                  <div className="flex flex-col space-y-4">
-                    <h3 className="text-xl font-bold text-gray-800">Video</h3>
-                    <div
-                      className="w-full max-w-2xl relative"
-                      style={{ paddingBottom: "56.25%" }}
-                    >
-                      <iframe
-                        src="https://player.vimeo.com/video/1052832118?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;quality=2K"
-                        frameBorder="0"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                        style={{
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          width: "100%",
-                          height: "100%",
-                        }}
-                        title="A fun sailing trip"
-                      />
+                  {post.video_url && (
+                    <div className="flex flex-col space-y-4">
+                      <h3 className="text-xl font-bold text-gray-800">Video</h3>
+                      <div
+                        className="w-full max-w-2xl relative"
+                        style={{ paddingBottom: "56.25%" }}
+                      >
+                        <video
+                          src={post.video_url}
+                          controls
+                          playsInline
+                          style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                          }}
+                          className="rounded-lg object-cover"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Keep the existing specifications section */}
                   {/* <div>
@@ -226,7 +230,7 @@ export default function Trip({
                   </div> */}
                   <p className="mt-4">
                     Whether you're seeking a romantic getaway, a family
-                    adventure, or a fun outing with friends, this yacht promises
+                    adventure, or a fun outing with friends, we promise
                     unforgettable memories on the water.
                   </p>
                 </div>
@@ -239,7 +243,15 @@ export default function Trip({
                     <li>
                       <a
                         className="flex justify-center items-center text-indigo-500 bg-indigo-100 hover:text-white hover:bg-indigo-500 rounded-full transition duration-150 ease-in-out"
-                        href="#0"
+                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                          typeof window !== "undefined"
+                            ? window.location.href
+                            : ""
+                        )}&text=${encodeURIComponent(
+                          `Check out this amazing sailing trip: ${post.title} in ${post.location}`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         aria-label="Twitter"
                       >
                         <svg
@@ -254,7 +266,13 @@ export default function Trip({
                     <li>
                       <a
                         className="flex justify-center items-center text-indigo-500 bg-indigo-100 hover:text-white hover:bg-indigo-500 rounded-full transition duration-150 ease-in-out"
-                        href="#0"
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                          typeof window !== "undefined"
+                            ? window.location.href
+                            : ""
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         aria-label="Facebook"
                       >
                         <svg
@@ -263,21 +281,6 @@ export default function Trip({
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path d="M14.023 24 14 17h-3v-3h3v-2c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V14H21l-1 3h-2.72v7h-3.257Z" />
-                        </svg>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="flex justify-center items-center text-indigo-500 bg-indigo-100 hover:text-white hover:bg-indigo-500 rounded-full transition duration-150 ease-in-out"
-                        href="#0"
-                        aria-label="Telegram"
-                      >
-                        <svg
-                          className="w-8 h-8 fill-current"
-                          viewBox="0 0 32 32"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M22.968 10.276a.338.338 0 0 0-.232-.253 1.192 1.192 0 0 0-.63.045s-14.019 5.038-14.82 5.596c-.172.121-.23.19-.259.272-.138.4.293.573.293.573l3.613 1.177a.388.388 0 0 0 .183-.011c.822-.519 8.27-5.222 8.7-5.38.068-.02.118 0 .1.049-.172.6-6.606 6.319-6.64 6.654a.138.138 0 0 0-.05.118l-.337 3.528s-.142 1.1.956 0a30.66 30.66 0 0 1 1.9-1.738c1.242.858 2.58 1.806 3.156 2.3a1 1 0 0 0 .732.283.825.825 0 0 0 .7-.622s2.561-10.275 2.646-11.658c.008-.135.021-.217.021-.317a1.177 1.177 0 0 0-.032-.316Z" />
                         </svg>
                       </a>
                     </li>

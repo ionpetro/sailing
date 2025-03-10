@@ -1,0 +1,1 @@
+ALTER TABLE trips ADD COLUMN video_url TEXT;

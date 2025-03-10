@@ -17,6 +17,7 @@ export interface Trip {
   available_until: string;
   boat?: Boat;
   boat_id?: number;
+  video_url?: string;
 }
 
 export interface Boat {
