@@ -9,9 +9,9 @@ export default async function PostsList() {
   const posts = await postsData;
 
   return (
-    <div className="pb-8 md:pb-16">
+    <div className="py-4 md:py-8">
       <h2 id="upcoming-trips" className="text-3xl font-bold font-inter mb-10">
-        What we got 👇{" "}
+        Experiences
       </h2>
       {/* List container */}
       <div className="flex flex-col">

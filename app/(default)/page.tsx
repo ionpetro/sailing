@@ -17,14 +17,14 @@ export default function Home() {
       {/*  Page content */}
       <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="py-8 md:py-16">
+          <div className="pt-8 md:pt-16">
             <div data-sticky-container>
               {/* <Sidebar /> */}
               {/* todo: add filters when we aggregate data */}
               {/* Main content */}
               <div className="w-full">
                 <PostsList />
-                <Testimonials />
+                {/* <Testimonials /> */}
               </div>
             </div>
           </div>

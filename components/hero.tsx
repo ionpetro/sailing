@@ -38,7 +38,7 @@ export default function Hero() {
                 className="absolute -top-6 -right-6"
                 style={{ transform: "rotate(15deg)" }}
               ></div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-inter mb-6 mt-8">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-inter my-6">
                 Experience the beauty of the Greek Islands by{" "}
                 <span className="font-nycd text-indigo-500 font-normal">
                   sailing

@@ -5,11 +5,11 @@ export default function HeaderLogo() {
   return (
     <Link className="block group" href="/" aria-label="SailWithTheBoys">
       <Image
-        src="/images/logo.png"
+        src="/images/logo.svg"
         alt="Logo"
-        width={32}
-        height={32}
-        className="w-8 h-8"
+        width={40}
+        height={40}
+        className="w-10 h-10"
       />
     </Link>
   );

@@ -10,9 +10,7 @@ export default function PostItem({ ...props }: Trip) {
         !props.sticky && "border-b border-gray-200"
       }`}
     >
-      <div
-        className={`px-4 py-6 ${props.sticky && "bg-indigo-100 rounded-xl"}`}
-      >
+      <div className={`px-4 py-6 hover:bg-indigo-100`}>
         <div className="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
           <div className="shrink-0 w-[150px] h-[100px]">
             <Image
