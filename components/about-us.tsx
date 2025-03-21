@@ -41,13 +41,14 @@ export default function AboutUs() {
 
           {/* Content */}
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h2 className="text-3xl font-bold mb-6">About Us</h2>
+            <h2 className="text-3xl font-bold mb-6">Meet the boys!</h2>
             <p className="text-lg text-gray-600 mb-6">
-              Welcome to SailwiththeBoys! We are passionate with the sea and we
-              have made it our mission to share the beauty of the Greek Islands
-              with fellow adventurers. Our journey began with a simple idea: to
-              create unforgettable sailing experiences that combine adventure
-              with authentic Greek culture.
+              Hey there traveller 👋 We are the boys of SailwiththeBoys.
+            </p>
+            <p className="text-lg text-gray-600 mb-6">
+              They also call us boukles (greek translation for curly hair). We
+              are passionate with the sea and we have made it our mission to
+              share the beauty of the Greek Islands with you.
             </p>
           </div>
         </div>
