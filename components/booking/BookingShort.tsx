@@ -6,7 +6,8 @@ import { DatePickerInput } from "@mantine/dates";
 import { loadStripe } from "@stripe/stripe-js";
 
 interface BookingModalProps {
-  price: string;
+  fullDayPrice: number;
+  halfDayPrice: number;
   title: string;
   maxGuests: number;
   id: string;
@@ -17,28 +18,26 @@ const stripePromise = loadStripe(
 );
 
 export default function BookingModal({
-  price,
+  fullDayPrice,
+  halfDayPrice,
   title,
   maxGuests,
   id,
 }: BookingModalProps) {
   const [date, setDate] = useState<Date | null>(new Date());
+  const [timeSlot, setTimeSlot] = useState<"morning" | "afternoon" | "full">(
+    "morning"
+  );
+
+  console.log(maxGuests);
   const [guests, setGuests] = useState(1);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [requestSent, setRequestSent] = useState(false);
-  const basePrice = parseInt(price.replace(/[^0-9]/g, ""));
 
-  // Calculate total price based on number of guests
-  const pricePerGuest = basePrice;
-  const subtotal = pricePerGuest * guests;
-
-  const fees = {
-    tax: Math.round(subtotal * 0.13), // Round the tax to avoid decimals
-  };
-
-  const total = subtotal + fees.tax;
+  // Calculate base price based on selected time slot
+  const basePrice = timeSlot === "full" ? fullDayPrice : halfDayPrice;
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -92,10 +91,10 @@ export default function BookingModal({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          basePrice: Math.round(subtotal), // Ensure whole number
-          tax: Math.round(fees.tax), // Ensure whole number
+          basePrice: Math.round(basePrice),
           guests,
           date: date.toISOString(),
+          timeSlot,
           tripId: id,
           tripTitle: title,
         }),
@@ -135,10 +134,28 @@ export default function BookingModal({
         />
       </div>
 
+      {/* Time Slot Selection */}
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Select Time Slot
+        </label>
+        <select
+          value={timeSlot}
+          onChange={(e) =>
+            setTimeSlot(e.target.value as "morning" | "afternoon" | "full")
+          }
+          className="form-select w-full"
+        >
+          <option value="morning">Morning (10:00 AM - 3:00 PM)</option>
+          <option value="afternoon">Afternoon (4:00 PM - 9:00 PM)</option>
+          <option value="full">Full Day</option>
+        </select>
+      </div>
+
       {/* Guest Selection */}
       <div>
         <label className="block text-sm font-medium mb-2">
-          Number of Guests
+          Number of Guests (up to {maxGuests})
         </label>
         <select
           value={guests}
@@ -173,20 +190,10 @@ export default function BookingModal({
       </div>
 
       {/* Price Breakdown */}
-      <div className="border-t pt-4 space-y-2">
-        <div className="flex justify-between">
-          <span>
-            Base price ({guests} {guests === 1 ? "guest" : "guests"})
-          </span>
-          <span>€{subtotal}</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Tax</span>
-          <span>€{fees.tax.toFixed(2)}</span>
-        </div>
+      <div>
         <div className="flex justify-between font-bold border-t pt-2">
-          <span>Estimated Price</span>
-          <span>€{total.toFixed(2)}</span>
+          <span>Total Price</span>
+          <span>€{basePrice}</span>
         </div>
       </div>
       {/* 

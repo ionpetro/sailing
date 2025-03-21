@@ -77,9 +77,10 @@ export default function Trip({
                   </div>
 
                   <BookingShort
-                    price={post.tag2}
+                    fullDayPrice={post.full_day_price}
+                    halfDayPrice={post.half_day_price}
                     title={post.title}
-                    maxGuests={12}
+                    maxGuests={post.max_guests}
                     id={post.id.toString()}
                   />
                 </div>

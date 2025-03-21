@@ -66,10 +66,11 @@ INSERT INTO trips (
   tag2, 
   tag3, 
   date, 
-  location, 
-  price_amount, 
+  location,
   boat_id,
-  description
+  description,
+  half_day_price,
+  full_day_price
 )
 VALUES
   (
@@ -80,7 +81,6 @@ VALUES
     '🇬🇷 Athens, Greece',
     'April',
     'Athens',
-    140,
     (SELECT id FROM boats WHERE name = 'Dufour 37'),
     '## The experience
 
@@ -102,7 +102,9 @@ Onboard, you''ll find everything you need for an enjoyable journey:
 - 🛋️ Premium upholstery, LED lighting, and plenty of ventilation
 - 🧭 State-of-the-art navigation instruments, including GPS, autopilot, and chartplotter
 - 🎵 Bluetooth-enabled sound system
-- 🏊‍♂️ Snorkeling gear, paddleboards, and inflatable toys available upon request'
+- 🏊‍♂️ Snorkeling gear, paddleboards, and inflatable toys available upon request',
+    450,
+    900
   ),
   (
     false,
@@ -112,7 +114,6 @@ Onboard, you''ll find everything you need for an enjoyable journey:
     '🇬🇷 Athens, Greece',
     'April',
     'Athens',
-    170,
     (SELECT id FROM boats WHERE name = 'Bali 4.2'),
     '## The experience
 
@@ -142,5 +143,15 @@ Experience the ultimate luxury sailing adventure aboard our brand new Bali 4.2 c
   - 📍 GPS - Precise positioning
   - 🗺️ Chartplotter - Digital navigation and route planning
   - 🎯 Autopilot - Automated steering assistance
-  - 📡 VHF Radio - Essential communication equipment'
+  - 📡 VHF Radio - Essential communication equipment',
+    1200,
+    2200
   );
+
+-- Set default time slots for all trips if not already set
+UPDATE trips
+SET morning_slot_start = '10:00',
+    morning_slot_end = '15:00',
+    afternoon_slot_start = '16:00',
+    afternoon_slot_end = '21:00'
+WHERE morning_slot_start IS NULL;

@@ -8,7 +8,6 @@ export interface Trip {
   tag3: string;
   date: string;
   location: string;
-  price_amount: number;
   price_currency: string;
   rental_type: "daily" | "weekly" | "monthly";
   max_guests: number;
@@ -18,6 +17,8 @@ export interface Trip {
   boat?: Boat;
   boat_id?: number;
   video_url?: string;
+  full_day_price: number;
+  half_day_price: number;
 }
 
 export interface Boat {
