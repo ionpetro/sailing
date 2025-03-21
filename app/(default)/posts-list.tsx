@@ -20,7 +20,7 @@ export default async function PostsList() {
         })}
 
         {/* Newletter CTA */}
-        <div className="py-8 border-b border-gray-200 -order-1">
+        <div className="mt-8 py-8 border-b border-gray-200 -order-1">
           <Newsletter />
         </div>
       </div>
