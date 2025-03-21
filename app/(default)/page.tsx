@@ -7,6 +7,7 @@ import Hero from "@/components/hero";
 // import Sidebar from "@/components/sidebar";
 import PostsList from "./posts-list";
 import Testimonials from "@/components/testimonials";
+import AboutUs from "@/components/about-us";
 
 export default function Home() {
   return (
@@ -30,6 +31,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AboutUs />
     </>
   );
 }
