@@ -1,4 +1,34 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Newsletter() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) throw new Error("Failed to subscribe");
+
+      setStatus("success");
+      setEmail("");
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  };
+
   return (
     <div className="relative text-center px-4 py-6 group">
       <div
@@ -16,22 +46,34 @@ export default function Newsletter() {
       <div className="text-2xl font-bold mb-5">
         Share your email and we'll get back to you.
       </div>
-      <form className="inline-flex max-w-sm">
+      <form className="inline-flex max-w-sm" onSubmit={handleSubmit}>
         <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none">
           <input
             type="email"
             className="form-input py-1.5 w-full mb-2 sm:mb-0 sm:mr-2"
             placeholder="Your email"
             aria-label="Your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <button
-            className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 shadow-sm whitespace-nowrap"
+            className="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 shadow-sm whitespace-nowrap disabled:opacity-50"
             type="submit"
+            disabled={status === "loading"}
           >
-            Send
+            {status === "loading" ? "Sending..." : "Send"}
           </button>
         </div>
       </form>
+      {status === "success" && (
+        <p className="text-green-600 mt-2">We will get back to you soon!</p>
+      )}
+      {status === "error" && (
+        <p className="text-red-600 mt-2">
+          Something went wrong. Please try again.
+        </p>
+      )}
     </div>
   );
 }
