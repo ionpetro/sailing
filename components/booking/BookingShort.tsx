@@ -69,13 +69,15 @@ export default function BookingModal({
 
       if (response.ok) {
         console.log("Request sent successfully");
-
         setRequestSent(true);
       } else {
-        console.error("Failed to send request");
+        const errorData = await response.json();
+        console.error("Failed to send request:", errorData);
+        // Optionally show error message to user
       }
     } catch (error) {
       console.error("Error:", error);
+      // Optionally show error message to user
     } finally {
       setIsLoading(false);
     }
