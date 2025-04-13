@@ -1,0 +1,53 @@
+INSERT INTO
+    "public"."trips" (
+        "id",
+        "sticky",
+        "title",
+        "tag1",
+        "tag2",
+        "tag3",
+        "date",
+        "location",
+        "created_at",
+        "boat_id",
+        "price_currency",
+        "rental_type",
+        "max_guests",
+        "description",
+        "available_from",
+        "available_until",
+        "video_url",
+        "full_day_price",
+        "half_day_price",
+        "morning_slot_start",
+        "morning_slot_end",
+        "afternoon_slot_start",
+        "afternoon_slot_end"
+    )
+VALUES
+    (
+        '3',
+        'false',
+        'Saronic Islands Speedboat Cruise',
+        'daily
+',
+        'private',
+        '🇬🇷 Athens, Greece',
+        'April',
+        'Athens',
+        '2025-04-13 19:46:41.454836+00',
+        '3',
+        '€',
+        'daily',
+        '10',
+        'Enjoy a thrilling day cruise on a high-speed RIB exploring the stunning Saronic islands, including Aegina, Agistri, and Moni. Swim in turquoise waters, relax under the sun, and enjoy a luxurious yet adventurous escape from Athens.',
+        '2025-06-01',
+        '2025-09-30',
+        'https://www.youtube.com/watch?v=xyz123',
+        '1300.00',
+        '750.00',
+        '10:00:00',
+        '15:00:00',
+        '16:00:00',
+        '21:00:00'
+    );
