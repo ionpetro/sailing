@@ -26,15 +26,17 @@ export default function BookingModal({
 }: BookingModalProps) {
   const [date, setDate] = useState<Date | null>(new Date());
   const [timeSlot, setTimeSlot] = useState<"morning" | "afternoon" | "full">(
-    "morning"
+    halfDayPrice ? "morning" : "full"
   );
 
-  console.log(maxGuests);
   const [guests, setGuests] = useState(1);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [requestSent, setRequestSent] = useState(false);
+
+  console.log("halfDayPrice", halfDayPrice);
+  console.log("timeSlot", timeSlot);
 
   // Calculate base price based on selected time slot
   const basePrice = timeSlot === "full" ? fullDayPrice : halfDayPrice;
@@ -148,8 +150,12 @@ export default function BookingModal({
           }
           className="form-select w-full"
         >
-          <option value="morning">Morning (10:00 AM - 3:00 PM)</option>
-          <option value="afternoon">Afternoon (4:00 PM - 9:00 PM)</option>
+          {!!halfDayPrice && halfDayPrice > 0 && (
+            <>
+              <option value="morning">Morning (10:00 AM - 3:00 PM)</option>
+              <option value="afternoon">Afternoon (4:00 PM - 9:00 PM)</option>
+            </>
+          )}
           <option value="full">Full Day</option>
         </select>
       </div>
