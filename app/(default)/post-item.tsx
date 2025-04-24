@@ -54,11 +54,13 @@ export default function PostItem({ ...props }: Trip) {
                   </div>
                 )}
                 {/* berths */}
-                {props.boat?.berth_count && (
+                {props.boat?.berth_count && props.boat.berth_count > 0 ? (
                   <div className="inline-flex items-center text-xs text-gray-600 whitespace-nowrap">
                     <Anchor className="w-3 h-3 mr-1" />
                     Berths: {props.boat.berth_count}
                   </div>
+                ) : (
+                  <></>
                 )}
                 {/* air conditioning */}
                 {props.boat?.specifications?.equipment?.includes(
