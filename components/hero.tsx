@@ -56,6 +56,7 @@ export default function Hero() {
               <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
                 <video
                   src="/videos/intro.mp4"
+                  poster="/images/dufour/diconsta1.png"
                   controls
                   playsInline
                   style={{
