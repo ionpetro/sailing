@@ -37,6 +37,12 @@ export const metadata: Metadata = {
         height: 600,
         alt: "SailwiththeBoys Open Graph Image",
       },
+      {
+        url: "https://www.sailwiththeboys.com/twitter-image.png",
+        width: 1200,
+        height: 600,
+        alt: "SailwiththeBoys Twitter Image",
+      },
     ],
     locale: "en_US",
     type: "website",
