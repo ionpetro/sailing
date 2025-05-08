@@ -23,13 +23,13 @@ const nycd = Nothing_You_Could_Do({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sailwiththeboys.com"),
-  title: "Home - SailwiththeBoys",
+  title: "Home - Sail with the Boys",
   description: "Book your dream sailing adventure in the Greek Islands",
   openGraph: {
-    title: "Home - SailwiththeBoys",
+    title: "Home - Sail with the Boys",
     description: "Book your dream sailing adventure in the Greek Islands",
     url: "https://www.sailwiththeboys.com",
-    siteName: "SailwiththeBoys",
+    siteName: "Sail with the Boys",
     images: [
       {
         url: "https://www.sailwiththeboys.com/opengraph-image.jpg",
