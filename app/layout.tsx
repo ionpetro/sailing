@@ -22,21 +22,30 @@ const nycd = Nothing_You_Could_Do({
 });
 
 export const metadata: Metadata = {
-  title: "SailwiththeBoys",
+  metadataBase: new URL("https://www.sailwiththeboys.com"),
+  title: "Home - SailwiththeBoys",
   description: "Book your dream sailing adventure in the Greek Islands",
-  icons: {
-    icon: [
-      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/favicon.png", sizes: "192x192", type: "image/png" },
-    ],
-    apple: [
+  openGraph: {
+    title: "Home - SailwiththeBoys",
+    description: "Book your dream sailing adventure in the Greek Islands",
+    url: "https://www.sailwiththeboys.com",
+    siteName: "SailwiththeBoys",
+    images: [
       {
-        url: "/images/apple-touch-icon.png",
-        sizes: "180x180",
-        type: "image/png",
+        url: "https://www.sailwiththeboys.com/opengraph-image.jpg",
+        width: 1200,
+        height: 600,
+        alt: "SailwiththeBoys Open Graph Image",
       },
     ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Home - SailwiththeBoys",
+    description: "Book your dream sailing adventure in the Greek Islands",
+    images: ["https://www.sailwiththeboys.com/twitter-image.png"],
   },
 };
 
