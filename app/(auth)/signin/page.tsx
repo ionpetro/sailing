@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Home - SailwiththeBoys",
+  title: "Sail with the Boys",
   description: "Book your dream sailing adventure in the Greek Islands",
 };
 

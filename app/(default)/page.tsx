@@ -1,12 +1,12 @@
 export const metadata = {
-  title: "Home - SailwiththeBoys",
+  title: "Sail with the Boys",
   description: "Book your dream sailing adventure in the Greek Islands",
+  icons: {
+    icon: "/logo.ico",
+  },
 };
 import Hero from "@/components/hero";
-// import PressLogos from "@/components/press-logos";
-// import Sidebar from "@/components/sidebar";
 import PostsList from "./posts-list";
-import Testimonials from "@/components/testimonials";
 import AboutUs from "@/components/about-us";
 
 export default function Home() {
